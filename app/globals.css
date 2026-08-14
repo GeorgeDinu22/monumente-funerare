@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; 
+} 
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0d0d0d;
+  --foreground: #ffffff; 
+
+  --bg-level-1: #0b0b0c;
+  --bg-level-2: #16161a;
+
+  --primary: #e3c100;
+  --secondary: #eacb13;
+
+  --on-primary: #000000;
+
+  --muted: color-mix(in srgb, var(--foreground) 65%, transparent);
+  --border: color-mix(in srgb, var(--foreground) 12%, transparent);
+
+  --radius-main: 16px;
+  --radius-interior: 8px;
+  --radius-button: 999px;
+
+  --font-weight-1: 800;
+  --font-weight-2: 700;
+  --font-weight-2-soft: 650;
+  --font-weight-3: 550;
+
+  --leading-heading: 1.15;
+  --leading-heading-loose: 1.2;
+  --leading-body: 1.5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-level-1: var(--bg-level-1);
+  --color-level-2: var(--bg-level-2);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-on-primary: var(--on-primary);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --radius-main: var(--radius-main);
+  --radius-interior: var(--radius-interior);
+  --radius-button: var(--radius-button);
+
+  --font-sans: var(--font-manrope);
+
+  --font-weight-w1: var(--font-weight-1);
+  --font-weight-w2: var(--font-weight-2);
+  --font-weight-w2-soft: var(--font-weight-2-soft);
+  --font-weight-w3: var(--font-weight-3);
+
+  --leading-heading: var(--leading-heading);
+  --leading-heading-loose: var(--leading-heading-loose);
+  --leading-body: var(--leading-body);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-weight: var(--font-weight-3);
+  line-height: var(--leading-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-1);
+  line-height: var(--leading-heading);
+  letter-spacing: -0.01em;
+}
+
+.bodyWrapper{
+  max-width: 1600px;
+  width: 100%;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

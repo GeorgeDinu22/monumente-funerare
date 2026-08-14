@@ -1,0 +1,347 @@
+.recenzii{
+    max-width: 92%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-block: 40px;
+}
+
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 24px;
+}
+.headText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+.head h2{
+    font-size: 32px;
+    text-align: center;
+}
+
+.controls{
+    flex: none;
+    display: none;
+    gap: 8px;
+}
+.controls button{
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-button);
+    background-color: var(--bg-level-1);
+    color: var(--foreground);
+    cursor: pointer;
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, opacity 200ms ease;
+}
+.controls button svg{
+    width: 20px;
+    height: 20px;
+}
+.controls button:hover:not(:disabled){
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--on-primary);
+}
+.controls button:disabled{
+    opacity: 0.35;
+    cursor: default;
+}
+.controls button:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Wrapper-ul ține gradientele laterale peste scroller */
+.carusel{
+    position: relative;
+}
+.carusel::before,
+.carusel::after{
+    content: "";
+    /* pe telefon cardul e cât containerul, deci degradeurile l-ar acoperi */
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 64px;
+    z-index: 2;
+    pointer-events: none;
+}
+.carusel::before{
+    left: 0;
+    background-image: linear-gradient(to right, var(--background), transparent);
+}
+.carusel::after{
+    right: 0;
+    background-image: linear-gradient(to left, var(--background), transparent);
+}
+
+.scroller{
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-block: 4px;
+}
+.scroller::-webkit-scrollbar{
+    display: none;
+}
+.scroller:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+    border-radius: var(--radius-main);
+}
+
+.card{
+    flex: none;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    scroll-snap-align: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-main);
+    background-color: var(--bg-level-1);
+}
+
+/* Poza lucrării — se deschide mărită în modal */
+.poza{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-interior);
+    background-color: var(--bg-level-2);
+    cursor: zoom-in;
+    transition: border-color 250ms ease;
+}
+.poza img{
+    object-fit: cover;
+    transition: transform 400ms ease;
+}
+.poza:hover{
+    border-color: var(--primary);
+}
+.poza:hover img{
+    transform: scale(1.04);
+}
+.poza:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+.lupa{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-button);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    color: var(--foreground);
+    transition: background-color 250ms ease, color 250ms ease;
+}
+.poza:hover .lupa{
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+
+.stele{
+    display: flex;
+    gap: 2px;
+    color: var(--primary);
+}
+.stele svg{
+    width: 18px;
+    height: 18px;
+}
+
+.text{
+    flex: 1;
+    color: var(--muted);
+    font-weight: var(--font-weight-3);
+}
+
+.autor{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+.autor span{
+    display: flex;
+    flex-direction: column;
+}
+.autor strong{
+    font-weight: var(--font-weight-2);
+}
+.autor small{
+    color: var(--muted);
+    font-size: 13px;
+}
+.initiala{
+    flex: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-button);
+    background-color: var(--primary);
+    color: var(--on-primary);
+    font-weight: var(--font-weight-1);
+}
+
+/* Modalul cu poza mărită */
+.modal{
+    width: min(92vw, 900px);
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--foreground);
+    opacity: 0;
+    transform: scale(0.94) translateY(10px);
+    transition:
+        opacity 260ms ease,
+        transform 260ms cubic-bezier(0.32, 0.72, 0, 1),
+        overlay 260ms ease allow-discrete,
+        display 260ms ease allow-discrete;
+}
+.modal[open]{
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+/* Starea de pornire a animației de deschidere */
+@starting-style{
+    .modal[open]{
+        opacity: 0;
+        transform: scale(0.94) translateY(10px);
+    }
+}
+
+.modal::backdrop{
+    background-color: rgba(0, 0, 0, 0);
+    transition:
+        background-color 260ms ease,
+        overlay 260ms ease allow-discrete,
+        display 260ms ease allow-discrete;
+}
+.modal[open]::backdrop{
+    background-color: rgba(0, 0, 0, 0.82);
+}
+@starting-style{
+    .modal[open]::backdrop{
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+.modalBox{
+    position: relative;
+    width: 100%;
+    height: min(78dvh, 640px);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-main);
+    background-color: var(--bg-level-1);
+}
+.modalBox img{
+    object-fit: contain;
+}
+.modalText{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 48px 16px 14px;
+    font-size: 14px;
+    font-weight: var(--font-weight-2-soft);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+.inchide{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-button);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    color: var(--foreground);
+    cursor: pointer;
+    transition: background-color 200ms ease, color 200ms ease;
+}
+.inchide:hover{
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+.inchide:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+@media (min-width: 768px){
+    .card{
+        width: min(88%, 380px);
+        scroll-snap-align: start;
+    }
+    .carusel::before,
+    .carusel::after{
+        display: block;
+    }
+    .controls{
+        display: flex;
+    }
+}
+
+@media (min-width: 1024px){
+    .recenzii{
+        gap: 40px;
+        padding-block: 60px;
+    }
+    .head h2{
+        font-size: 44px;
+    }
+    .scroller{
+        gap: 24px;
+    }
+    .carusel::before,
+    .carusel::after{
+        width: 120px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .scroller{
+        scroll-behavior: auto;
+    }
+    .modal,
+    .poza img,
+    .lupa{
+        transition-duration: 1ms;
+    }
+}

@@ -1,0 +1,8 @@
+{
+  "className with CSS module": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "className",
+    "body": ["className={styles.$1}$0"],
+    "description": "className bound to a CSS module class"
+  }
+}

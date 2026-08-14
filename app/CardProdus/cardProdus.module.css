@@ -1,0 +1,75 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-main);
+    background-color: var(--bg-level-1);
+    color: var(--foreground);
+    padding-top: 4px;
+    transition: transform 300ms ease, border-color 300ms ease, background-color 300ms ease, box-shadow 300ms ease;
+}
+.card:hover{
+    transform: translateY(-4px);
+}
+.media{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    height: 350px;
+    overflow: hidden;
+}
+.media img{
+    object-fit: contain;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    flex: 1;
+    padding: 20px;
+}
+
+.text{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+}
+.text h3{
+    font-size: 20px;
+    font-weight: var(--font-weight-2);
+    line-height: var(--leading-heading);
+}
+.text p{
+    flex: none;
+    color: white;
+    font-size: 16px;
+    font-weight: var(--font-weight-2);
+    white-space: nowrap;
+}
+
+.buton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+    padding: 10px 20px;
+    border-radius: var(--radius-interior);
+    background-color: var(--primary);
+    color: var(--on-primary);
+    font-size: 15px;
+    font-weight: var(--font-weight-2);
+    transition: background-color 200ms ease, gap 200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce){
+    .card,
+    .buton{
+        transition-duration: 1ms;
+    }
+}

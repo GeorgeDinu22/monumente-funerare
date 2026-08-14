@@ -1,0 +1,114 @@
+.deCeNoi{
+    max-width: 92%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-block: 40px;
+}
+
+.head{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    align-items: center;  
+}
+.head h2{
+    font-size: 32px;
+}
+.head p{
+    width: 90%;
+    color: var(--muted);
+    font-weight: var(--font-weight-3);
+}
+
+
+.stats{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-main);
+    background-color: var(--bg-level-1);
+}
+
+.stat{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 24px 20px;
+    text-align: center;
+    grid-template-columns: 50px auto;
+}
+.stat + .stat{
+    border-top: 1px solid var(--border);
+}
+
+.valoare{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: var(--primary);
+    font-size: 46px;
+    font-weight: var(--font-weight-1);
+    line-height: 1;
+}
+.sufix{
+    line-height: 1;
+}
+
+.numar{
+    position: relative;
+    display: inline-block;
+    font-size: 40px;
+}
+/* Ținta rezervă lățimea și rămâne textul real pentru cititoarele de ecran. */
+.numarFinal{
+    color: transparent;
+}
+.numarLive{
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+}
+
+.eticheta{
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: var(--font-weight-3);
+    text-wrap: balance;
+}
+
+/* De la tabletă: cele patru trec pe un rând, iar linia
+   despărțitoare se rotește pe verticală. */
+@media (min-width: 640px){
+    .stats{
+        flex-direction: row;
+    }
+    .stat + .stat{
+        border-top: none;
+        border-inline-start: 1px solid var(--border);
+    }
+}
+
+@media (min-width: 1024px){
+    .deCeNoi{
+        gap: 40px;
+        padding-block: 60px;
+    }
+    .head h2{
+        font-size: 44px;
+    }
+    .stat{
+        gap: 12px;
+        padding: 44px 28px;
+    }
+    .valoare{
+        font-size: 68px;
+    }
+    .eticheta{
+        font-size: 16px;
+    }
+}
