@@ -1,0 +1,80 @@
+.cta{
+    max-width: 92%;
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.text h2{
+    max-width: 20ch;
+    color: #fff;
+    font-size: 30px;
+    line-height: var(--leading-heading-loose);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+.colorText{
+    color: var(--primary);
+}
+.text p{
+    max-width: 55ch;
+    color: #fff;
+    font-weight: var(--font-weight-2);
+    text-shadow: 0 1px 16px rgba(0, 0, 0, 0.5);
+}
+
+.actions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+.primar,
+.secundar{
+    padding: 12px 24px;
+    border-radius: var(--radius-button);
+    font-weight: var(--font-weight-2);
+    font-size: 18px;
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+.primar{
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+.primar:hover{
+    background-color: var(--secondary);
+}
+.secundar{
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+.secundar:hover{
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.primar:focus-visible,
+.secundar:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+@media (min-width: 1024px){
+    .cta{
+        padding-block: 60px 80px;
+    }
+    .text h2{
+        font-size: 40px;
+    }
+}

@@ -1,0 +1,217 @@
+.pagina{
+    max-width: 92%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.pagina h1{
+    font-size: clamp(28px,2vw,40px);
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/* ---------- Categorii ---------- */
+
+.sectiune{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.card{
+    position: relative;
+    display: block;
+    height: 450px;
+    overflow: hidden;
+    border-radius: var(--radius-main);
+    background-color: var(--bg-level-2);
+    color: var(--foreground);
+    isolation: isolate;
+    transition: transform 500ms ease;
+}
+.card img{
+    object-fit: cover;
+    z-index: -2;
+    transition: scale 500ms ease;
+}
+.card::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.35) 45%,
+        rgba(0, 0, 0, 0.05) 100%
+    );
+}
+.card:hover{
+    transform: translateY(-4px);
+}
+.card:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+.posterGol{
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-level-1);
+    color: color-mix(in srgb, var(--foreground) 30%, transparent);
+}
+
+.titlu{
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    max-width: calc(100% - 80px);
+    font-size: 20px;
+    font-weight: var(--font-weight-2);
+    line-height: var(--leading-heading);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+}
+
+.sageata{
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-button);
+    background-color: var(--primary);
+    color: var(--on-primary);
+    opacity: 0;
+    translate: 8px 8px;
+    transition: opacity 300ms ease, translate 300ms ease, background-color 200ms ease;
+}
+.card:hover .sageata,
+.card:focus-visible .sageata{
+    opacity: 1;
+    translate: 0 0;
+}
+
+@media (hover: none){
+    .sageata{
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* ---------- Animație de apariție ---------- */
+
+.pagina h1,
+.card:not([data-reveal]){
+    animation: aparitie 350ms ease;
+}
+
+@keyframes aparitie{
+    from{
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- Animație de reveal la scroll ---------- */
+
+@media (prefers-reduced-motion: no-preference){
+    .card[data-reveal]{
+        opacity: 0;
+        translate: 0 28px;
+        transition: opacity 600ms ease, translate 600ms ease;
+    }
+    .card[data-reveal="vizibil"]{
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .card,
+    .card img,
+    .sageata{
+        transition-duration: 1ms;
+    }
+    .pagina h1,
+    .card:not([data-reveal]){
+        animation: none;
+    }
+}
+
+@media (min-width: 640px){
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 32px;
+    }
+}
+
+@media (min-width: 768px){
+    .continutHero{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+    .continutHero p{
+        width: 60%;
+    }
+    .hero::after{
+        background: none;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+@media (min-width: 1024px){
+    .pagina{
+        gap: 60px;
+        padding-bottom: 60px;
+    }
+    .hero{
+        min-height: 480px;
+    }
+    .continutHero{
+        gap: 16px;
+        padding: 64px 48px;
+    }
+    .sectiune{
+        gap: 32px;
+    }
+    .grid{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+    .titlu{
+        left: 20px;
+        bottom: 20px;
+        font-size: 24px;
+    }
+    .sageata{
+        right: 20px;
+        bottom: 20px;
+        width: 44px;
+        height: 44px;
+    }
+}

@@ -1,0 +1,179 @@
+.pagina{
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-color: var(--background);
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    max-width: 420px;
+    width: 100%;
+    padding: 32px 24px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-main);
+    background-color: var(--bg-level-1);
+    text-align: center;
+}
+
+.icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 8px;
+    border-radius: var(--radius-button);
+    background-color: var(--bg-level-2);
+    color: var(--primary);
+}
+
+.titlu{
+    font-size: 24px;
+    line-height: var(--leading-heading);
+}
+
+.text{
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: var(--font-weight-3);
+}
+
+.formular{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-top: 16px;
+    text-align: left;
+}
+
+.camp{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.eticheta{
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: var(--font-weight-2);
+}
+
+.input{
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-interior);
+    background-color: var(--bg-level-2);
+    color: var(--foreground);
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: var(--font-weight-3);
+    transition: border-color 200ms ease;
+}
+.input::placeholder{
+    color: color-mix(in srgb, var(--foreground) 35%, transparent);
+}
+.input:hover{
+    border-color: color-mix(in srgb, var(--foreground) 22%, transparent);
+}
+.input:focus-visible{
+    border-color: var(--primary);
+    outline: 2px solid var(--primary);
+    outline-offset: 1px;
+}
+
+.campParola{
+    position: relative;
+    display: flex;
+}
+
+.inputParola{
+    padding-right: 48px;
+}
+
+.butonOchi{
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-interior);
+    background-color: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 200ms ease, background-color 200ms ease;
+}
+.butonOchi:hover{
+    background-color: color-mix(in srgb, var(--foreground) 8%, transparent);
+    color: var(--foreground);
+}
+.butonOchi:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 1px;
+}
+
+.eroare{
+    padding: 12px 16px;
+    border: 1px solid color-mix(in srgb, #ef4444 35%, transparent);
+    border-radius: var(--radius-interior);
+    background-color: color-mix(in srgb, #ef4444 10%, transparent);
+    color: #fca5a5;
+    font-size: 14px;
+    font-weight: var(--font-weight-3);
+}
+
+.buton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: var(--radius-button);
+    background-color: var(--primary);
+    color: var(--on-primary);
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: var(--font-weight-2);
+    cursor: pointer;
+    transition: background-color 200ms ease, opacity 200ms ease;
+}
+.buton:hover:not(:disabled){
+    background-color: var(--secondary);
+}
+.buton:disabled{
+    cursor: progress;
+    opacity: 0.75;
+}
+.buton:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+@media (min-width: 640px){
+    .card{
+        padding: 40px 32px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .input,
+    .buton,
+    .butonOchi{
+        transition-duration: 1ms;
+    }
+}

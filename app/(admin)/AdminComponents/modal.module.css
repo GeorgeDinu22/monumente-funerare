@@ -1,0 +1,89 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: color-mix(in srgb, #000 66%, transparent);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.overlayClosing {
+  animation: fadeOut 0.18s ease forwards;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-height: calc(100dvh - 48px);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-level-2);
+  border: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);
+  border-radius: var(--radius-main);
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 1);
+  animation: riseIn 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modalClosing {
+  animation: sinkOut 0.18s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-interior);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.close:hover {
+  background: color-mix(in srgb, var(--foreground) 8%, transparent);
+  color: var(--foreground);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+}
+
+@keyframes sinkOut {
+  to {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .overlayClosing,
+  .modal,
+  .modalClosing {
+    animation-duration: 0.01ms;
+  }
+}

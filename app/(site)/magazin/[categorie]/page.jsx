@@ -1,0 +1,124 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { ArrowLeft, PackageOpen, Phone } from "lucide-react";
+import { categorii, getCategorie, getProduseDinCategorie } from "../../data/produse";
+import CardProdus from "../../CardProdus/cardProdus";
+import FooterSection from "../../Footer/footerSection";
+import RevealLaScroll from "../../RevealLaScroll/revealLaScroll";
+import styles from './categorie.module.css';
+import { Suspense } from "react";
+import { ProduseCached } from "../../../../cache/produseCached";
+import SkeletonProduse from "../../Skeletons/skeletonProduse";
+
+// export function generateStaticParams(){
+//     return categorii.map((categorie) => ({ categorie: categorie.slug }));
+// }
+
+// export async function generateMetadata({ params }){
+//     const { categorie: slug } = await params;
+//     const categorie = getCategorie(slug);
+
+//     if (!categorie) return {};
+
+//     return {
+//         title: `${categorie.nume} — Magazin`,
+//         description: categorie.descriere,
+//     };
+// }
+
+function titluDinSlug(slug){
+    const text = slug.replace(/-/g, " ");
+    return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+export async function BodyPage({params}) {
+    const { categorie: slug } = await params;
+    const produse = await ProduseCached(slug);
+    if(produse.length < 1){
+        return(
+            <>
+                <main className={styles.pagina}>
+                    <div className={styles.head}>
+                        <Link href="/magazin" className={styles.inapoi}>
+                            <ArrowLeft size={18} strokeWidth={2.2} />
+                            Toate categoriile
+                        </Link>
+
+                        <h1>{titluDinSlug(slug)}</h1>
+                    </div>
+
+                    <div className={styles.gol}>
+                        <span className={styles.golIcon} aria-hidden="true">
+                            <PackageOpen size={32} strokeWidth={1.8} />
+                        </span>
+
+                        <h2 className={styles.golTitlu}>
+                            Nu există produse în această categorie
+                        </h2>
+
+                        <p className={styles.golText}>
+                            Momentan nu avem produse listate aici. Sunați-ne și vă
+                            pregătim o ofertă pentru ce aveți nevoie.
+                        </p>
+
+                        <div className={styles.golActiuni}>
+                            <Link href="tel:+40766360649" className={styles.golPrimar}>
+                                <Phone size={18} strokeWidth={2.2} />
+                                Sună acum
+                            </Link>
+
+                            <Link href="/magazin" className={styles.golSecundar}>
+                                Vezi toate categoriile
+                            </Link>
+                        </div>
+                    </div>
+                </main>
+
+                <FooterSection />
+            </>
+        )
+    }
+    const numeCategorie = produse[0].categorii.titlu;
+
+    return(
+        <>
+            <main className={styles.pagina}>
+                <div className={styles.head}>
+                    <Link href="/magazin" className={styles.inapoi}>
+                        <ArrowLeft size={18} strokeWidth={2.2} />
+                        Toate categoriile
+                    </Link>
+
+                    <h1>{numeCategorie}</h1>
+                </div>
+
+                <div className={styles.grid}>
+                    {produse.map((produs) => (
+                        <CardProdus
+                            key={produs.slug}
+                            imaginePoster={produs.poster}
+                            titlu={produs.titlu}
+                            pret={produs.pret}
+                            slug={produs.slug}
+                            slugParinte={slug}
+                        />
+                    ))}
+                </div>
+
+                <RevealLaScroll selector={`.${styles.grid} > a`} />
+            </main>
+
+            <FooterSection />
+        </>
+    )
+}
+
+export default async function CategoriePage({ params }){
+    return(
+        <Suspense fallback={<SkeletonProduse />}>
+            <BodyPage params={params}/>
+        </Suspense>
+    )
+}
+
+

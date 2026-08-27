@@ -1,0 +1,52 @@
+.scrollGallery{
+    --sg-gap: 12px;
+    --sg-radius: 16px;
+    --sg-height: 420px;
+
+    display: flex;
+    gap: var(--sg-gap);
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+.scrollGallery::-webkit-scrollbar{
+    display: none;
+}
+
+.item{
+    position: relative;
+    flex: 0 0 auto;
+    width: 82%;
+    scroll-snap-align: center;
+}
+
+.frame{
+    position: relative;
+    height: var(--sg-height);
+    overflow: hidden;
+    border-radius: var(--sg-radius);
+    background-color: var(--bg-level-1);
+}
+.frame img{
+    object-fit: cover;
+}
+
+.overlay{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.65) 100%);
+}
+
+.label{
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}

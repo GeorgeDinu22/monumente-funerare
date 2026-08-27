@@ -1,0 +1,198 @@
+.pagina{
+    max-width: 92%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 40px;
+}
+
+.head{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 100px;
+}
+
+.head h1{
+    font-size: clamp(28px,2vw,40px);
+    line-height: var(--leading-heading);
+}
+
+.head p{
+    color: var(--muted);
+    font-weight: var(--font-weight-3);
+}
+
+.inapoi{
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    align-self: flex-start;
+    color: var(--muted);
+    font-size: clamp(14px,1.5vw,18px);
+    font-weight: var(--font-weight-2);
+    transition: color 200ms ease, gap 200ms ease;
+}
+.inapoi:hover{
+    gap: 8px;
+    color: var(--primary);
+}
+.inapoi:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+}
+
+.gol{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    max-width: 560px;
+    width: 100%;
+    margin-inline: auto;
+    padding: 40px 24px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-main);
+    background-color: var(--bg-level-1);
+    text-align: center;
+}
+
+.golIcon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-button);
+    background-color: var(--bg-level-2);
+    color: var(--primary);
+}
+
+.golTitlu{
+    font-size: 20px;
+    line-height: var(--leading-heading);
+}
+
+.golText{
+    max-width: 44ch;
+    color: var(--muted);
+    font-weight: var(--font-weight-3);
+}
+
+.golActiuni{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.golPrimar,
+.golSecundar{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-button);
+    font-size: 16px;
+    font-weight: var(--font-weight-2);
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+.golPrimar{
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+.golPrimar:hover{
+    background-color: var(--secondary);
+}
+.golPrimar:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+.golSecundar{
+    border-color: var(--border);
+    color: var(--foreground);
+}
+.golSecundar:hover{
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.golSecundar:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+.head,
+.gol,
+.grid > a:not([data-reveal]){
+    animation: aparitie 350ms ease;
+}
+
+@keyframes aparitie{
+    from{
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .head,
+    .gol,
+    .grid > a:not([data-reveal]){
+        animation: none;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference){
+    .grid > a[data-reveal]{
+        opacity: 0;
+        translate: 0 28px;
+        transition: opacity 600ms ease, translate 600ms ease;
+    }
+    .grid > a[data-reveal="vizibil"]{
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@media (min-width: 640px){
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (min-width: 1024px){
+    .pagina{
+        gap: 40px;
+        padding-bottom: 60px;
+    }
+    .head{
+        gap: 16px;
+    }
+    .grid{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+    .gol{
+        gap: 16px;
+        padding: 56px 40px;
+    }
+    .golTitlu{
+        font-size: 24px;
+    }
+}
