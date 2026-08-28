@@ -85,6 +85,7 @@ export default function GalerieProdus({ poze, titlu }){
                                     alt={poza.alt}
                                     width={150}
                                     height={150}
+                                    priority
                                     sizes="120px"
                                 />
                             </button>
@@ -110,7 +111,7 @@ export default function GalerieProdus({ poze, titlu }){
                                 alt={poza.alt}
                                 width={1000}
                                 height={1000}
-                                priority={i === 0}
+                                priority
                                 sizes="(min-width: 1024px) 55vw, 80vw"
                             />
                         </div>

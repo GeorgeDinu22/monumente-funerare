@@ -59,6 +59,49 @@ export async function GetCategoriiById() {
     }
 }
 
+export async function GetProdusById(id) {
+    try{
+        //await CheckAdmin();
+        if(!id){
+            return{
+                ok:false,
+                error:"Nu ai trimis toate datele!"
+            }
+        }
+        const supabase = await createAdminClient();
+        const {data,error} = await supabase
+            .from("produse")
+            .select("id,titlu,slug,descriere,pret,id_categorie,poster,images_produs(id,url,index)")
+            .eq("id",id)
+            .single();
+
+        if(error || !data){
+            return{
+                ok:false,
+                error:"A aparut o eroare la preluarea produsului!"
+            }
+        }
+        // ordinea din Postgres nu e garantata, asa ca sortam noi dupa index
+        const imagini = (data.images_produs ?? [])
+            .filter((imagine) => imagine.url)
+            .sort((a,b) => a.index - b.index);
+
+        return{
+            ok:true,
+            data:{
+                ...data,
+                images_produs:imagini
+            }
+        }
+    }catch(err){
+        console.error("Eroare GetProdusById: ",err)
+        return{
+            ok:false,
+            error:"A aparut o eroare neasteptata!"
+        }
+    }
+}
+
 export async function GetProduse() {
     try{
         //await CheckAdmin();

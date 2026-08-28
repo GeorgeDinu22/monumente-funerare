@@ -1,7 +1,9 @@
+import { cacheTag } from "next/cache";
 import { createAdminClient } from "../lib/supabase/supabaseAdmin";
 
 export async function CategoriiCached(){
     "use cache"
+    cacheTag("categorii");
 
     try{
         const supabase = await createAdminClient();

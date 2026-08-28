@@ -1,0 +1,95 @@
+.continut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.iconita {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, #ff4d4f 12%, transparent);
+  border: 1px solid color-mix(in srgb, #ff4d4f 26%, transparent);
+  color: #ff6b6d;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titlu {
+  font-size: clamp(20px, 2vw, 24px);
+  padding-inline: 40px;
+}
+
+.mesaj {
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.mesaj strong {
+  color: var(--foreground);
+  font-weight: var(--font-weight-2-soft);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.secondaryButton {
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-button);
+  background: transparent;
+  color: var(--muted);
+  font-size: clamp(14px, 1.3vw, 16px);
+  font-weight: var(--font-weight-3);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.secondaryButton:hover:not(:disabled) {
+  color: var(--foreground);
+  border-color: color-mix(in srgb, var(--foreground) 26%, transparent);
+}
+
+.secondaryButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.dangerButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: var(--radius-button);
+  background: #ff4d4f;
+  color: #fff;
+  font-size: clamp(14px, 1.3vw, 16px);
+  font-weight: var(--font-weight-2-soft);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.dangerButton:hover:not(:disabled) {
+  background: #ff6b6d;
+  transform: translateY(-1px);
+}
+
+.dangerButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -99,7 +99,7 @@
   position: relative;
   overflow: hidden;
   display: flex;
-  height: 400px;
+  height: 450px;
   flex-direction: column;
   background: var(--bg-level-2);
   border: 1px solid color-mix(in srgb, var(--foreground) 8%, transparent);
@@ -108,8 +108,7 @@
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--primary) 32%, transparent);
+  transform: translateY(-4px);
   box-shadow: 0 12px 28px -18px rgba(0, 0, 0, 0.9);
 }
 
@@ -161,14 +160,10 @@
   bottom: 18px;
   display: flex;
   gap: 8px;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.18s ease;
 }
 
-.card:hover .cardActiuni,
-.card:focus-within .cardActiuni {
-  opacity: 1;
-}
 
 .butonIcon {
   width: 34px;

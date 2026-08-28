@@ -2,9 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { Plus, Pencil, Trash2, ImageOff, AlertCircle, RotateCw } from "lucide-react";
+import { toast } from "sonner";
 import AddProductModal from "../../AdminComponents/Modals/addProductModal";
+import EditProductModal from "../../AdminComponents/Modals/editProductModal";
+import ConfirmModal from "../../AdminComponents/Modals/confirmModal";
 import styles from "./produse.module.css";
 import { GetCategoriiById, GetProduse } from "../../functions/fetchData";
+import { StergeProdus } from "../../functions/StergeProdus";
 
 const SCHELET = [0, 1, 2, 3, 4, 5];
 
@@ -24,6 +28,8 @@ export default function AdminProdusePage() {
   const [produse, setProduse] = useState([]);
   const [categorii, setCategorii] = useState([]);
   const [modalDeschis, setModalDeschis] = useState(false);
+  const [produsDeSters, setProdusDeSters] = useState(null);
+  const [produsDeEditat, setProdusDeEditat] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -31,6 +37,28 @@ export default function AdminProdusePage() {
 
   const stergeProdus = (id) =>
     setProduse((lista) => lista.filter((produs) => produs.id !== id));
+
+  const actualizeazaProdus = (produsNou) =>
+    setProduse((lista) =>
+      lista.map((produs) =>
+        produs.id === produsNou.id ? { ...produs, ...produsNou } : produs
+      )
+    );
+
+  const confirmaStergerea = async () => {
+    if (!produsDeSters) return;
+
+    const res = await StergeProdus(produsDeSters.id);
+
+    if (!res.ok) {
+      toast.error(res.error);
+      return;
+    }
+
+    toast.success(res.message);
+    stergeProdus(produsDeSters.id);
+    setProdusDeSters(null);
+  };
 
   const fetchProduse = async () => {
     try {
@@ -171,6 +199,7 @@ export default function AdminProdusePage() {
                         type="button"
                         className={styles.butonIcon}
                         aria-label={`Editează ${produs.titlu}`}
+                        onClick={() => setProdusDeEditat(produs)}
                       >
                         <Pencil size={16} strokeWidth={2} />
                       </button>
@@ -179,7 +208,7 @@ export default function AdminProdusePage() {
                         type="button"
                         className={`${styles.butonIcon} ${styles.butonSterge}`}
                         aria-label={`Șterge ${produs.titlu}`}
-                        onClick={() => stergeProdus(produs.id)}
+                        onClick={() => setProdusDeSters(produs)}
                       >
                         <Trash2 size={16} strokeWidth={2} />
                       </button>
@@ -198,6 +227,29 @@ export default function AdminProdusePage() {
         onSaved={adaugaProdus}
         onRefresh={fetchProduse}
         categoryOptions={optiuniCategorii}
+      />
+
+      <EditProductModal
+        open={Boolean(produsDeEditat)}
+        produs={produsDeEditat}
+        onClose={() => setProdusDeEditat(null)}
+        onSaved={actualizeazaProdus}
+        onRefresh={fetchProduse}
+        categoryOptions={optiuniCategorii}
+      />
+
+      <ConfirmModal
+        open={Boolean(produsDeSters)}
+        onClose={() => setProdusDeSters(null)}
+        onConfirm={confirmaStergerea}
+        titlu="Șterge produsul"
+        mesaj={
+          <>
+            Produsul <strong>{produsDeSters?.titlu}</strong> va fi șters definitiv, împreună
+            cu toate imaginile lui. Acțiunea nu poate fi anulată.
+          </>
+        }
+        confirmLabel="Șterge"
       />
     </div>
   );

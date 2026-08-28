@@ -1,10 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LayoutGrid, Plus, Pencil, Trash2, ImageOff, AlertCircle, RotateCw } from "lucide-react";
+import { Plus, Pencil, Trash2, ImageOff, AlertCircle, RotateCw } from "lucide-react";
+import { toast } from "sonner";
 import AddCategoryModal from "../../AdminComponents/Modals/addCategoryModal";
+import EditCategoryModal from "../../AdminComponents/Modals/editCategoryModal";
+import ConfirmModal from "../../AdminComponents/Modals/confirmModal";
 import styles from "./categorii.module.css";
 import { GetCategorii } from "../../functions/fetchData";
+import { StergeCategorie } from "../../functions/StergeCategorie";
 
 const SCHELET = [0, 1, 2, 3, 4, 5];
 
@@ -18,6 +22,8 @@ const formatData = (valoare) =>
 export default function AdminCategoriiPage() {
   const [categorii, setCategorii] = useState([]);
   const [modalDeschis, setModalDeschis] = useState(false);
+  const [categorieDeSters, setCategorieDeSters] = useState(null);
+  const [categorieDeEditat, setCategorieDeEditat] = useState(null);
   const [error,setError] = useState("");
   const [loading,setLoading] = useState(true);
 
@@ -26,6 +32,28 @@ export default function AdminCategoriiPage() {
 
   const stergeCategorie = (id) =>
     setCategorii((lista) => lista.filter((categorie) => categorie.id !== id));
+
+  const actualizeazaCategorie = (categorieNoua) =>
+    setCategorii((lista) =>
+      lista.map((categorie) =>
+        categorie.id === categorieNoua.id ? { ...categorie, ...categorieNoua } : categorie
+      )
+    );
+
+  const confirmaStergerea = async () => {
+    if (!categorieDeSters) return;
+
+    const res = await StergeCategorie(categorieDeSters.id);
+
+    if (!res.ok) {
+      toast.error(res.error);
+      return;
+    }
+
+    toast.success(res.message);
+    stergeCategorie(categorieDeSters.id);
+    setCategorieDeSters(null);
+  };
 
   const fetchCatgeorii = async () => {
     try{
@@ -144,6 +172,7 @@ export default function AdminCategoriiPage() {
                       type="button"
                       className={styles.butonIcon}
                       aria-label={`Editează ${categorie.titlu}`}
+                      onClick={() => setCategorieDeEditat(categorie)}
                     >
                       <Pencil size={16} strokeWidth={2} />
                     </button>
@@ -152,7 +181,7 @@ export default function AdminCategoriiPage() {
                       type="button"
                       className={`${styles.butonIcon} ${styles.butonSterge}`}
                       aria-label={`Șterge ${categorie.titlu}`}
-                      onClick={() => stergeCategorie(categorie.id)}
+                      onClick={() => setCategorieDeSters(categorie)}
                     >
                       <Trash2 size={16} strokeWidth={2} />
                     </button>
@@ -169,6 +198,28 @@ export default function AdminCategoriiPage() {
         onClose={() => setModalDeschis(false)}
         onSaved={adaugaCategorie}
         onRefresh={() => fetchCatgeorii()}
+      />
+
+      <EditCategoryModal
+        open={Boolean(categorieDeEditat)}
+        categorie={categorieDeEditat}
+        onClose={() => setCategorieDeEditat(null)}
+        onSaved={actualizeazaCategorie}
+        onRefresh={() => fetchCatgeorii()}
+      />
+
+      <ConfirmModal
+        open={Boolean(categorieDeSters)}
+        onClose={() => setCategorieDeSters(null)}
+        onConfirm={confirmaStergerea}
+        titlu="Șterge categoria"
+        mesaj={
+          <>
+            Categoria <strong>{categorieDeSters?.titlu}</strong> va fi ștearsă definitiv,
+            împreună cu toate produsele din ea. Acțiunea nu poate fi anulată.
+          </>
+        }
+        confirmLabel="Șterge"
       />
     </div>
   );

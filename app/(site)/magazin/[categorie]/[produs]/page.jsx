@@ -25,10 +25,13 @@ function IconWhatsApp(){
 }
 
 
-function linkWhatsApp(produs){
+function linkWhatsApp(produs,slugCategorie,slugProdus){
     const mesaj =
-        `Bună ziua! Am văzut pe site „${produs.titlu}” (${produs.pret} lei) ` +
-        `și aș vrea mai multe detalii despre preț și termenul de execuție.`;
+        `Bună ziua! Am văzut pe site „${produs.titlu}” (${produs.pret ? "RON" : ""}) ` +
+        `și aș vrea mai multe detalii.
+        
+        https://${process.env.NEXT_PUBLIC_URL}/magazin/${slugCategorie}/${slugProdus}
+        `;
 
     return `https://wa.me/+40766360649?text=${encodeURIComponent(mesaj)}`;
 }
@@ -101,7 +104,7 @@ export async function BodyPage({params}){
                                     Sună acum
                                 </Link>
                                 <Link
-                                    href={linkWhatsApp(produs)}
+                                    href={linkWhatsApp(produs,slugCategorie,slugProdus)}
                                     className={styles.whatsapp}
                                     target="_blank"
                                     rel="noopener noreferrer"
