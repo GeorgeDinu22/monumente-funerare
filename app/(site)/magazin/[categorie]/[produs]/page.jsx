@@ -62,7 +62,8 @@ export async function BodyPage({params}){
             <main className={styles.produs}>
                 <Link href={`/magazin/${slugCategorie}`} className={styles.inapoi}>
                     <ArrowLeft size={18} strokeWidth={2.2} />
-                    {categorie ? categorie.nume : "Înapoi la magazin"}
+                    {/* {categorie ? categorie.nume : "Înapoi la magazin"} */}
+                    Înapoi la magazin"
                 </Link>
 
                 <div className={styles.layout}>
