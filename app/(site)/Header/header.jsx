@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { PhoneCall } from "lucide-react";
+import { companyInfo } from "../data/companyInfo";
 import styles from './header.module.css';
+import Image from "next/image";
+import { useState } from "react";
 
 const links = [
     { href: "/", label: "Acasă" },
     { href: "/servicii-funerare", label: "Servicii Funerare" },
     { href: "/constructii-funerare", label: "Construcții Funerare" },
-    { href: "/magazin", label: "Magazin Cruci" },
-    { href: "/#galerie", label: "Portofoliu Proiecte" },
+    { href: "/magazin", label: "Magazin" },
 ];
 
 function WhatsappIcon(){
@@ -27,115 +28,55 @@ function WhatsappIcon(){
     )
 }
 
-// Cât trebuie parcurs într-o direcție înainte să ascundem/arătăm headerul.
-const PRAG_SCROLL = 8;
 
 export default function Header(){
     const [open, setOpen] = useState(false);
-    const [hidden, setHidden] = useState(false);
-
-    // Ultima poziție citită și punctul de unde măsurăm cei 8px pe direcția curentă.
-    const lastY = useRef(0);
-    const anchorY = useRef(0);
-    const directie = useRef(0);
-
-    // Ascunde headerul la scroll în jos, îl aduce înapoi la scroll în sus.
-    useEffect(() => {
-        lastY.current = window.scrollY;
-        anchorY.current = window.scrollY;
-
-        let frame = 0;
-
-        function evalueaza(){
-            frame = 0;
-            const y = Math.max(0, window.scrollY);
-            const d = y > lastY.current ? 1 : y < lastY.current ? -1 : directie.current;
-
-            // La schimbarea de direcție repornim măsurătoarea din punctul curent.
-            if (d !== directie.current){
-                directie.current = d;
-                anchorY.current = y;
-            }
-
-            if (y <= PRAG_SCROLL){
-                setHidden(false);
-            } else if (d === 1 && y - anchorY.current > PRAG_SCROLL){
-                setHidden(true);
-            } else if (d === -1 && anchorY.current - y > PRAG_SCROLL){
-                setHidden(false);
-            }
-
-            lastY.current = y;
-        }
-
-        function onScroll(){
-            if (frame) return;
-            frame = window.requestAnimationFrame(evalueaza);
-        }
-
-        window.addEventListener("scroll", onScroll, { passive: true });
-        return () => {
-            window.removeEventListener("scroll", onScroll);
-            if (frame) window.cancelAnimationFrame(frame);
-        };
-    }, []);
-
-    // Cu sidebarul deschis pagina nu mai face scroll, deci headerul rămâne vizibil.
-    useEffect(() => {
-        if (open) setHidden(false);
-    }, [open]);
-
-    // Blochează scroll-ul paginii cât timp sidebarul e deschis,
-    // compensând lățimea scrollbar-ului ca să nu sară layout-ul.
-    useEffect(() => {
-        if (!open) return;
-
-        const { body } = document;
-        const scrollbar = window.innerWidth - document.documentElement.clientWidth;
-        const prevOverflow = body.style.overflow;
-        const prevPadding = body.style.paddingRight;
-
-        body.style.overflow = "hidden";
-        if (scrollbar > 0) body.style.paddingRight = `${scrollbar}px`;
-
-        return () => {
-            body.style.overflow = prevOverflow;
-            body.style.paddingRight = prevPadding;
-        };
-    }, [open]);
-
-    // Închide sidebarul la Escape
-    useEffect(() => {
-        if (!open) return;
-
-        function onKeyDown(e){
-            if (e.key === "Escape") setOpen(false);
-        }
-        window.addEventListener("keydown", onKeyDown);
-        return () => window.removeEventListener("keydown", onKeyDown);
-    }, [open]);
 
     return(
         <>
-            <header className={`${styles.header} ${hidden ? styles.headerHidden : ""}`}>
+            <header className={styles.header}>
                 <Link href="/" className={styles.logo} onClick={() => setOpen(false)}>
-                    Funerare
+                    <Image
+                        src="/logoV2.png"
+                        alt="Logo Monumente Funerare"
+                        width={120}
+                        height={120}
+                    />
                 </Link>
 
+                <nav className={styles.navDesktop} aria-label="Navigare principală">
+                    {links.map((link) => (
+                        <Link key={link.href} href={link.href}>
+                            {link.label}
+                        </Link>
+                    ))}
+                </nav>
+
                 <div className={styles.actiuni}>
-                    {/* Sub 420px rămâne doar iconița, de aceea ține și aria-label. */}
                     <Link
-                        href="tel:+40766360649"
+                        href={companyInfo.telefon.href}
                         className={styles.call}
                         aria-label="Sună acum"
                     >
                         <PhoneCall size={18} strokeWidth={2.2} aria-hidden="true" />
                     </Link>
 
+                    <Link
+                        href={companyInfo.telefon.href}
+                        className={styles.callDesktop}
+                        aria-label="Sună acum"
+                    >
+                        <PhoneCall size={18} strokeWidth={2.2} aria-hidden="true" />
+                        Cere Oferta
+                    </Link>
+
                     <button
                         type="button"
                         className={`${styles.burger} ${open ? styles.burgerOpen : ""}`}
-                        onClick={() => setOpen((v) => !v)}
+                        onClick={() => {
+                            if (window.matchMedia("(min-width: 768px)").matches) return;
+                            setOpen((v) => !v);
+                        }}
                         aria-label={open ? "Închide meniul" : "Deschide meniul"}
                         aria-expanded={open}
                         aria-controls="sidebar-meniu"
@@ -177,10 +118,9 @@ export default function Header(){
                     ))}
                 </nav>
 
-                {/* Doar iconițe, deci fiecare buton își ține eticheta în aria-label. */}
                 <div className={styles.sidebarFooter}>
                     <Link
-                        href="tel:+40766360649"
+                        href={companyInfo.telefon.href}
                         className={styles.footerCall}
                         onClick={() => setOpen(false)}
                         aria-label="Sună acum"
@@ -189,7 +129,7 @@ export default function Header(){
                     </Link>
 
                     <Link
-                        href="https://wa.me/+40 766 360 649"
+                        href={companyInfo.whatsapp.href}
                         className={styles.footerWhatsapp}
                         onClick={() => setOpen(false)}
                         aria-label="Scrie pe WhatsApp"

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { companyInfo } from "../data/companyInfo";
 import styles from './hero.module.css';
 
 export default function HeroSection(){
@@ -17,7 +18,7 @@ export default function HeroSection(){
                 <p>
                     Servicii funerare complete și monumente funerare realizate cu grijă, respect și devotament pentru cei dragi.
                 </p>
-                <Link href="tel:+40766360649">
+                <Link href={companyInfo.telefon.href}>
                     Sună acum
                 </Link>
             </div>

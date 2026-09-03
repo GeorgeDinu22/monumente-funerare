@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowUpRight, ImageOff } from "lucide-react";
 import FooterSection from "../Footer/footerSection";
 import RevealLaScroll from "../RevealLaScroll/revealLaScroll";
-import { categorii } from "../data/produse";
 import styles from './magazinPagina.module.css';
 import { CategoriiCached } from "../../../cache/categoriiCahed";
 import { notFound } from "next/navigation";

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Check, PhoneCall, Leaf, Flower2, Gem, Plane } from "lucide-react";
 import AccordionGallery from "../AccordionGallery/accordionGallery";
+import { companyInfo } from "../data/companyInfo";
 import FooterSection from "../Footer/footerSection";
 import RevealLaScroll from "../RevealLaScroll/revealLaScroll";
 import ScrollGallery from "../ScrollGallery/scrollGallery";
@@ -146,7 +147,7 @@ export default function ServiciiFunerarePage(){
                                 </ul>
 
                                 <div className={styles.actiuni}>
-                                    <Link href="tel:+40766360649" className={styles.primar}>
+                                    <Link href={companyInfo.telefon.href} className={styles.primar}>
                                         Sună acum 
                                     </Link>
                                 </div>

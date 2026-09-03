@@ -26,6 +26,10 @@
     font-weight: var(--font-weight-1);
     font-size: 20px;
 }
+.logo img{
+    width: 60px;
+    height: 60px;
+}
 .brand p{
     max-width: 40ch;
     color: var(--muted);
@@ -79,8 +83,26 @@
     color: var(--primary);
 }
 
+.developer{
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+.devLink{
+    color: var(--primary);
+    font-weight: var(--font-weight-2);
+    transition: opacity 200ms ease;
+}
+.devLink:hover{
+    opacity: 0.75;
+}
+
 .coloana a:focus-visible,
-.legal a:focus-visible{
+.legal a:focus-visible,
+.devLink:focus-visible{
     outline: 2px solid var(--primary);
     outline-offset: 2px;
     border-radius: 4px;
@@ -90,6 +112,10 @@
     .top{
         grid-template-columns: 1.4fr 1fr 1fr 1fr;
         gap: 40px;
+    }
+    .logo img{
+        width: 72px;
+        height: 72px;
     }
     .bottom{
         flex-direction: row;

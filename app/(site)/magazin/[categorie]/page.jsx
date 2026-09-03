@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { ArrowLeft, PackageOpen, Phone } from "lucide-react";
-import { categorii, getCategorie, getProduseDinCategorie } from "../../data/produse";
+import { companyInfo } from "../../data/companyInfo";
 import CardProdus from "../../CardProdus/cardProdus";
 import FooterSection from "../../Footer/footerSection";
 import RevealLaScroll from "../../RevealLaScroll/revealLaScroll";
@@ -10,21 +9,18 @@ import { Suspense } from "react";
 import { ProduseCached } from "../../../../cache/produseCached";
 import SkeletonProduse from "../../Skeletons/skeletonProduse";
 
-// export function generateStaticParams(){
-//     return categorii.map((categorie) => ({ categorie: categorie.slug }));
-// }
 
-// export async function generateMetadata({ params }){
-//     const { categorie: slug } = await params;
-//     const categorie = getCategorie(slug);
+export async function generateMetadata({ params }){
+    const { categorie: slug } = await params;
+    const categorie = ProduseCached(slug);
 
-//     if (!categorie) return {};
+    if (!categorie) return {};
 
-//     return {
-//         title: `${categorie.nume} — Magazin`,
-//         description: categorie.descriere,
-//     };
-// }
+    return {
+        title: `${categorie.nume} — Magazin`,
+        description: categorie.descriere,
+    };
+}
 
 function titluDinSlug(slug){
     const text = slug.replace(/-/g, " ");
@@ -62,7 +58,7 @@ export async function BodyPage({params}) {
                         </p>
 
                         <div className={styles.golActiuni}>
-                            <Link href="tel:+40766360649" className={styles.golPrimar}>
+                            <Link href={companyInfo.telefon.href} className={styles.golPrimar}>
                                 <Phone size={18} strokeWidth={2.2} />
                                 Sună acum
                             </Link>

@@ -1,8 +1,8 @@
 .produs{
     max-width: 92%;
     width: 100%;
-    padding-block: 80px 40px;
-}
+    padding-block: 100px 40px;
+} 
 
 .inapoi{
     display: inline-flex;
@@ -415,11 +415,10 @@
     font-weight: var(--font-weight-3);
 }
 
-/* ---------- Desktop ---------- */
 
 @media (min-width: 1024px){
     .produs{
-        padding-block: 100px 60px;
+        padding-block: 120px 60px;
     }
     .layout{
         display: grid;

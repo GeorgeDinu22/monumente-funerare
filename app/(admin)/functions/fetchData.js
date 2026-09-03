@@ -102,6 +102,34 @@ export async function GetProdusById(id) {
     }
 }
 
+export async function GetAnunturi() {
+    try{
+        //await CheckAdmin();
+        const supabase = await createAdminClient();
+        const {data,error} = await supabase
+            .from("anunturi")
+            .select("id,created_at,url,is_active")
+            .order("created_at",{ascending:false});
+
+        if(error){
+            return{
+                ok:false,
+                error:"A aparut o eroare la preluarea anunturilor!"
+            }
+        }
+        return{
+            ok:true,
+            data:data ?? []
+        }
+    }catch(err){
+        console.error("Eroare GetAnunturi: ",err)
+        return{
+            ok:false,
+            error:"A aparut o eroare neasteptata!"
+        }
+    }
+}
+
 export async function GetProduse() {
     try{
         //await CheckAdmin();

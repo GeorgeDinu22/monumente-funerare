@@ -38,33 +38,9 @@
   --admin-sidebar-width: 260px;
 }
 
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-level-1: var(--bg-level-1);
-  --color-level-2: var(--bg-level-2);
-  --color-admin-card: var(--admin-card);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-on-primary: var(--on-primary);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-
-  --radius-main: var(--radius-main);
-  --radius-interior: var(--radius-interior);
-  --radius-button: var(--radius-button);
-
-  --font-sans: var(--font-manrope);
-
-  --font-weight-w1: var(--font-weight-1);
-  --font-weight-w2: var(--font-weight-2);
-  --font-weight-w2-soft: var(--font-weight-2-soft);
-  --font-weight-w3: var(--font-weight-3);
-
-  --leading-heading: var(--leading-heading);
-  --leading-heading-loose: var(--leading-heading-loose);
-  --leading-body: var(--leading-body);
-} */
+html{
+  scroll-behavior: smooth;  
+}
 
 body {
   background: var(--background);

@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import HeroSection from './Hero/heroSection';
+import AnunturiSection from './Anunturi/anunturiSection';
 import MagazinSection from './MagazinAcasa/magazinSection';
 import BodyServiciiSection from './BodyServicii/bodyServiciiSection';
 import DeCeNoiSection from './DeCeNoi/deCeNoiSection';
@@ -11,6 +13,9 @@ export default function Home() {
   return (
    <>
     <HeroSection/>
+    <Suspense fallback={null}>
+      <AnunturiSection/>
+    </Suspense>
     <BodyServiciiSection/>
     {/* <MagazinSection/> */}
     <DeCeNoiSection/>

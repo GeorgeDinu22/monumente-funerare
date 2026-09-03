@@ -14,4 +14,7 @@ export async function CheckAdmin(){
     if(!data || error){
         throw new Error("Access Denied")
     }
+    if(data.role !== 'admin'){
+        throw new Error("Access Denied")
+    }
 }

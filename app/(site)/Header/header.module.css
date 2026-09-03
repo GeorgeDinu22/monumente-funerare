@@ -1,37 +1,71 @@
 .header{
     position: fixed;
-    top: 0px;
-    left: 0;
-    right: 0;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%) !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
     padding: 8px 12px;
     z-index: 50;
-    background-color: rgba(0, 0, 0, 1);
-    backdrop-filter: blur(10px);
+    background-color: color-mix(in srgb, var(--bg-level-1) 55%, transparent);
+    backdrop-filter: blur(12px) saturate(180%);
+
+    border: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 color-mix(in srgb, var(--foreground) 12%, transparent);
     transform: translateY(0);
     opacity: 1;
+    height: 72px;
+    width: 96%;
+    border-radius: 16px;
     transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1), opacity 250ms ease;
     will-change: transform, opacity;
 }
 
-/* Ascuns la scroll în jos; reapare la scroll în sus (prag 8px, vezi header.jsx). */
-.headerHidden{
+@supports not (backdrop-filter: blur(20px)){
+    .header{
+        background-color: color-mix(in srgb, var(--bg-level-1) 92%, transparent);
+    }
+}
+
+/* .headerHidden{
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
-}
+} */
 
 .logo{
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-weight: var(--font-weight-1);
-    font-size: 20px;
-    letter-spacing: -0.01em;
+}
+.logo img{
+    height: 52px;
+    width: 52px;
+}
+
+.navDesktop{
+    display: none;
+    align-items: center;
+    gap: 8px;
+}
+.navDesktop a{
+    padding: 8px 12px;
+    border-radius: var(--radius-interior);
+    font-weight: var(--font-weight-2-soft);
+    font-size: clamp(16px,1.5vw,20px);
+    white-space: nowrap;
     color: var(--foreground);
+    transition: background-color 200ms ease, color 200ms ease;
+}
+.navDesktop a:hover{
+    background-color: var(--bg-level-2);
+    color: var(--primary);
+}
+.navDesktop a:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 }
 
 /* Butonul de sunat + hamburgerul, grupate în dreapta */
@@ -247,9 +281,49 @@
     outline-offset: 2px;
 }
 
-@media (min-width: 768px){
+.callDesktop{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: var(--radius-interior);
+    background-color: var(--primary);
+    color: var(--on-primary);
+    font-weight: var(--font-weight-2);
+    font-size: clamp(16px,1.5vw,18px);
+    white-space: nowrap;
+    transition: background-color 200ms ease;
+}
+.callDesktop:hover{
+    background-color: var(--secondary);
+}
+@media (min-width: 876px){
     .logo{
         font-size: 24px;
+    }
+    .header{
+        top: 12px;
+        height: 80px;
+    }
+    .logo img{
+        height: 64px;
+        width: 64px;
+    }
+    .call{
+        display: none;
+    }
+    .callDesktop{
+        display: flex;
+    }
+    .header{
+        padding: 8px 24px;
+    }
+    .navDesktop{
+        display: flex;
+    }
+    .burger{
+        display: none;
     }
 }
 

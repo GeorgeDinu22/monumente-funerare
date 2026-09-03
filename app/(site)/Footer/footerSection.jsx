@@ -1,16 +1,16 @@
 import Link from "next/link";
 import { cacheLife } from "next/cache";
+import { companyInfo } from "../data/companyInfo";
 import styles from './footer.module.css';
+import Image from "next/image";
 
 const navigare = [
-    { href: "#magazin", label: "Magazin" },
-    { href: "#recenzii", label: "Recenzii" },
+    { href: "/magazin", label: "Magazin" },
+    { href: "/constructii-funerare", label: "Constructii Funerare" },
     { href: "#galerie", label: "Galerie" },
-    { href: "#contact", label: "Contact" },
+    { href: "#footer", label: "Contact" },
 ];
 
-// Anul din copyright e o valoare instabilă la prerender (Cache Components),
-// așa că îl cache-uim cu un profil zilnic.
 export default async function FooterSection(){
     'use cache';
     cacheLife('days');
@@ -18,10 +18,17 @@ export default async function FooterSection(){
     const an = new Date().getFullYear();
 
     return(
-        <footer className={styles.footer}>
+        <footer id="footer" className={styles.footer}>
             <div className={styles.top}>
                 <div className={styles.brand}>
-                    <span className={styles.logo}>Monumente Funerare</span>
+                    <span className={styles.logo}>
+                        <Image
+                            src="/logoV2.png"
+                            alt="Logo Monumente Funerare"
+                            width={100}
+                            height={100}
+                        />
+                    </span>
                     <p>
                         Monumente, cruci și lucrări din marmură și granit,
                         executate cu grijă pentru memoria celor dragi.
@@ -39,25 +46,36 @@ export default async function FooterSection(){
 
                 <div className={styles.coloana}>
                     <h3>Contact</h3>
-                    <Link href="tel:+40766360649">0733 782 872</Link>
-                    <Link href="mailto:contact@monumentefunerare.ro">contact@monumentefunerare.ro</Link>
-                    <span>Str. Exemplu nr. 10, București</span>
+                    <Link href={companyInfo.telefon.href}>{companyInfo.telefon.afisat}</Link>
+                    <span>{companyInfo.adresa}</span>
+                    <span>CUI: {companyInfo.CUI}</span>
                 </div>
 
                 <div className={styles.coloana}>
                     <h3>Program</h3>
-                    <span>Luni – Vineri: 08:00 – 18:00</span>
-                    <span>Sâmbătă: 09:00 – 14:00</span>
-                    <span>Duminică: închis</span>
+                    {companyInfo.program.map((rand) => (
+                        <span key={rand}>{rand}</span>
+                    ))}
                 </div>
             </div>
 
             <div className={styles.bottom}>
                 <small>© {an} Monumente Funerare. Toate drepturile rezervate.</small>
-                {/* <div className={styles.legal}>
-                    <Link href="/termeni">Termeni și condiții</Link>
+                <div className={styles.legal}>
                     <Link href="/confidentialitate">Politica de confidențialitate</Link>
-                </div> */}
+                </div>
+            </div>
+
+            <div className={styles.developer}>
+                Dezvoltat de{" "}
+                <Link
+                    href="https://www.georgeweb-design.ro/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.devLink}
+                >
+                    George Web Design
+                </Link>
             </div>
         </footer>
     )

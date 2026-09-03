@@ -27,8 +27,8 @@ const servicii = [
         ],
     },
     {
-        id: "magazin-cruci",
-        titlu: "Magazin cruci",
+        id: "magazin",
+        titlu: "Magazin",
         imagine: "/images/cruce-marmura.jpg",
         href: "/magazin",
         puncte: [

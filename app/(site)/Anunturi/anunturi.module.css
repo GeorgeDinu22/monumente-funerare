@@ -1,0 +1,165 @@
+.anunturi{
+    max-width: 92%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-block: 40px;
+    margin-top: 40px;
+}
+
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 24px;
+}
+.headText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+.head h2{
+    font-size: clamp(32px, 4vw, 44px);
+    text-align: center;
+}
+
+.controls{
+    flex: none;
+    display: none;
+    gap: 8px;
+}
+.controls button{
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-button);
+    background-color: var(--bg-level-1);
+    color: var(--foreground);
+    cursor: pointer;
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, opacity 200ms ease;
+}
+.controls button svg{
+    width: 20px;
+    height: 20px;
+}
+.controls button:hover:not(:disabled){
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--on-primary);
+}
+.controls button:disabled{
+    opacity: 0.35;
+    cursor: default;
+}
+.controls button:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.carusel{
+    position: relative;
+}
+.carusel::before,
+.carusel::after{
+    content: "";
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 64px;
+    z-index: 2;
+    pointer-events: none;
+}
+.carusel::before{
+    left: 0;
+    background-image: linear-gradient(to right, var(--background), transparent);
+}
+.carusel::after{
+    right: 0;
+    background-image: linear-gradient(to left, var(--background), transparent);
+}
+
+.scroller{
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-block: 4px;
+}
+.scroller::-webkit-scrollbar{
+    display: none;
+}
+.scroller:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+    border-radius: var(--radius-main);
+}
+
+.card{
+    position: relative;
+    flex: none;
+    width: 92%;
+    height: 500px;
+    overflow: hidden;
+    scroll-snap-align: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-main);
+    background-color: var(--bg-level-1);
+}
+.card img{
+    object-fit: cover;
+}
+
+@media (min-width: 768px){
+    .card{
+        width: min(88%, 900px);
+        scroll-snap-align: start;
+    }
+    .carusel::before,
+    .carusel::after{
+        display: block;
+    }
+    .controls{
+        display: flex;
+    }
+}
+
+@media (min-width: 1024px){
+    .anunturi{
+        gap: 24px;
+        padding-block: 40px;
+    }
+    .scroller{
+        gap: 24px;
+        justify-content: center;
+        overflow-x: visible;
+        scroll-snap-type: none;
+    }
+    .card{
+        flex: 0 1 450px;
+        width: auto;
+        max-width: 450px;
+    }
+    .controls{
+        display: none;
+    }
+    .carusel::before,
+    .carusel::after{
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .scroller{
+        scroll-behavior: auto;
+    }
+}

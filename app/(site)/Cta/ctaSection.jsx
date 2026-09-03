@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ScrollExpand from "../ScrollExpand/scrollExpand";
+import { companyInfo } from "../data/companyInfo";
 import styles from './cta.module.css';
 
 export default function CtaSection(){
@@ -28,7 +29,7 @@ export default function CtaSection(){
                     </div>
 
                     <div className={styles.actions}>
-                        <Link href="tel:+40766360649" className={styles.primar}>
+                        <Link href={companyInfo.telefon.href} className={styles.primar}>
                             Solicită ofertă
                         </Link>
                     </div>

@@ -1,9 +1,10 @@
-import { cacheTag } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { createAdminClient } from "../lib/supabase/supabaseAdmin";
 
 export async function ProduseCached(slug){
     "use cache";
     cacheTag("produse");
+    cacheLife("saptamana");
     try{
         const supabase = await createAdminClient();
         const {data,error} = await supabase

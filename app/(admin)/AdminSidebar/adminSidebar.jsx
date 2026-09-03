@@ -9,7 +9,7 @@ const linkuri = [
   { href: "/admin-service", eticheta: "Acasă", Icon: House },
   { href: "/admin-service/produse", eticheta: "Produse", Icon: Package },
   { href: "/admin-service/categorii", eticheta: "Categorii", Icon: LayoutGrid },
-  { href: "/admin-service/promotii", eticheta: "Promoții", Icon: BadgePercent },
+  { href: "/admin-service/anunturi", eticheta: "Anunțuri", Icon: BadgePercent },
 ];
 
 export default function AdminSidebar() {
