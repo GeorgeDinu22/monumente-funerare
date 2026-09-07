@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { linkWhatsAppCuMesaj } from "../../../data/companyInfo";
+import { truncheazaDescriere } from "../../../data/seo";
 import FooterSection from "../../../Footer/footerSection";
 import GalerieProdus from "./galerieProdus";
 import ActiuniProdus from "./actiuniProdus";
@@ -13,7 +14,7 @@ import SkeletonProdus from "../../../Skeletons/skeletonProdus";
 
 function linkWhatsApp(produs,slugCategorie,slugProdus){
     const mesaj =
-        `Bună ziua! Am văzut pe site „${produs.titlu}” (${produs.pret ? "RON" : ""}) ` +
+        `Bună ziua! Am văzut pe site „${produs.titlu}” ${produs.pret ? `,${produs.pret} RON ` : ""}` +
         `și aș vrea mai multe detalii.
         
         https://${process.env.NEXT_PUBLIC_URL}/magazin/${slugCategorie}/${slugProdus}
@@ -26,19 +27,34 @@ export async function generateMetadata({ params }){
     const { categorie, produs: slugProdus } = await params;
     const produs = await ProdusBySlugCached(slugProdus);
 
-    if (!produs) return {};
+    if (!produs) {
+        return {
+            title: "Produs negăsit",
+            alternates: { canonical: `/magazin/${categorie}/${slugProdus}` },
+            robots: { index: false, follow: true },
+        };
+    }
+
+    const prefixPret = produs.pret ? `${produs.pret} RON – ` : "";
+    const descriere = `${prefixPret}${truncheazaDescriere(produs.descriere, 155 - prefixPret.length)}`;
+    const cale = `/magazin/${categorie}/${slugProdus}`;
 
     return {
-        title: `${produs.titlu} — Monumente Funerare`,
-        description: produs.descriere,
+        title: produs.titlu,
+        description: descriere,
+        alternates: { canonical: cale },
+        openGraph: {
+            title: produs.titlu,
+            description: descriere,
+            url: cale,
+            ...(produs.poster ? { images: [produs.poster] } : {}),
+        },
     };
 }
 
 export async function BodyPage({params}){
    const { categorie: slugCategorie, produs: slugProdus } = await params;
     const produs = await ProdusBySlugCached(slugProdus);
-
-    await new Promise((res) => setTimeout(res,500))
 
     if (!produs) notFound();
 
@@ -62,7 +78,6 @@ export async function BodyPage({params}){
             <main className={styles.produs}>
                 <Link href={`/magazin/${slugCategorie}`} className={styles.inapoi}>
                     <ArrowLeft size={18} strokeWidth={2.2} />
-                    {/* {categorie ? categorie.nume : "Înapoi la magazin"} */}
                     Înapoi la magazin
                 </Link>
 

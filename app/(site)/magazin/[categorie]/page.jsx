@@ -7,18 +7,37 @@ import RevealLaScroll from "../../RevealLaScroll/revealLaScroll";
 import styles from './categorie.module.css';
 import { Suspense } from "react";
 import { ProduseCached } from "../../../../cache/produseCached";
+import { CategoriiCached } from "../../../../cache/categoriiCahed";
 import SkeletonProduse from "../../Skeletons/skeletonProduse";
 
 
 export async function generateMetadata({ params }){
     const { categorie: slug } = await params;
-    const categorie = ProduseCached(slug);
+    const categorii = await CategoriiCached();
+    const categorie = categorii?.find((element) => element.slug === slug);
 
-    if (!categorie) return {};
+    if (!categorie) {
+        return {
+            title: "Categorie negăsită",
+            alternates: { canonical: `/magazin/${slug}` },
+            robots: { index: false, follow: true },
+        };
+    }
+
+    const titlu = `${categorie.titlu} – Modele și Prețuri`;
+    const descriere = `${categorie.titlu} din granit și marmură, cu prețuri afișate. Vedeți toate modelele disponibile și sunați pentru ofertă și montaj.`;
+    const cale = `/magazin/${slug}`;
 
     return {
-        title: `${categorie.nume} — Magazin`,
-        description: categorie.descriere,
+        title: titlu,
+        description: descriere,
+        alternates: { canonical: cale },
+        openGraph: {
+            title: titlu,
+            description: descriere,
+            url: cale,
+            ...(categorie.poster ? { images: [categorie.poster] } : {}),
+        },
     };
 }
 

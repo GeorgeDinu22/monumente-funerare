@@ -3,16 +3,16 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    padding-block: 40px;
+    gap: 24px;
+    padding-block: 60px;
 }
 
 .head{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 4px;
     text-align: center;
-    align-items: center;  
+    align-items: center;
 }
 .head h2{
     font-size: 32px;
@@ -64,7 +64,7 @@
     display: inline-block;
     font-size: 40px;
 }
-/* Ținta rezervă lățimea și rămâne textul real pentru cititoarele de ecran. */
+
 .numarFinal{
     color: transparent;
 }
@@ -81,8 +81,7 @@
     text-wrap: balance;
 }
 
-/* De la tabletă: cele patru trec pe un rând, iar linia
-   despărțitoare se rotește pe verticală. */
+
 @media (min-width: 640px){
     .stats{
         flex-direction: row;

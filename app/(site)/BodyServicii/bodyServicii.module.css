@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-    margin-top: 40px;
+    margin-top: 60px;
 }
 
 .head{
@@ -25,7 +25,7 @@
 .grid{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 40px;
 }
 
 .cardWrap{
@@ -35,9 +35,9 @@
 }
 
 .card{
-    --step-ratio: 0.4;                                 
-    --step-h: calc(var(--step-ratio) * 50cqw);         
-    --corner: calc(0.045 * 100cqw);                    
+    --step-ratio: 0.4;
+    --step-h: calc(var(--step-ratio) * 50cqw);
+    --corner: calc(0.045 * 100cqw);
 
     position: relative;
     flex: 1;
@@ -60,7 +60,7 @@
 }
 .card:hover{
     transform: translateY(-8px);
-   
+
 }
 
 .badge{
@@ -147,8 +147,6 @@
     outline-offset: 3px;
 }
 
-/* container pentru <clipPath>; nu display:none, altfel unele browsere
-   nu mai rezolvă referința url(#arcadaCard) */
 .defs{
     position: absolute;
     width: 0;

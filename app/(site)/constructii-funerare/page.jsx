@@ -9,10 +9,19 @@ import ScrollExpand from "../ScrollExpand/scrollExpand";
 import ScrollGallery from "../ScrollGallery/scrollGallery";
 import styles from './constructiiFunerarePagina.module.css';
 
+const titlu = "Construcții Funerare: Cavouri și Cripte";
+const descriere =
+    "Construim cavouri, cripte, borduri și placări din granit și marmură, cu echipă proprie de montaj. Măsurători în cimitir și ofertă fără costuri ascunse.";
+
 export const metadata = {
-    title: "Construcții Funerare — Cavouri, Cripte și Monumente",
-    description:
-        "Construim cavouri, cripte, monumente funerare, borduri și placări pentru locul de veci. Materiale rezistente, echipă proprie de montaj și lucrări executate de la zero.",
+    title: titlu,
+    description: descriere,
+    alternates: { canonical: "/constructii-funerare" },
+    openGraph: {
+        title: titlu,
+        description: descriere,
+        url: "/constructii-funerare",
+    },
 };
 
 const lucrari = [

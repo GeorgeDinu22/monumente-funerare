@@ -7,6 +7,7 @@ export const metadata = {
     title: "Politica de Confidențialitate",
     description:
         "Cum prelucrăm datele cu caracter personal pe acest site: adresa IP folosită strict pentru protecție anti-abuz, statistici anonime și drepturile tale conform GDPR.",
+    alternates: { canonical: "/confidentialitate" },
     robots: {
         index: true,
         follow: true,

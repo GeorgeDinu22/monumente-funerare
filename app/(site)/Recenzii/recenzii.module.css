@@ -63,14 +63,14 @@
     outline-offset: 2px;
 }
 
-/* Wrapper-ul ține gradientele laterale peste scroller */
+
 .carusel{
     position: relative;
 }
 .carusel::before,
 .carusel::after{
     content: "";
-    /* pe telefon cardul e cât containerul, deci degradeurile l-ar acoperi */
+
     display: none;
     position: absolute;
     top: 0;
@@ -117,7 +117,7 @@
     background-color: var(--bg-level-1);
 }
 
-/* Poza lucrării — se deschide mărită în modal */
+
 .poza{
     position: relative;
     width: 100%;
@@ -211,7 +211,7 @@
     font-weight: var(--font-weight-1);
 }
 
-/* Modalul cu poza mărită */
+
 .modal{
     width: min(92vw, 900px);
     padding: 0;
@@ -230,7 +230,7 @@
     opacity: 1;
     transform: scale(1) translateY(0);
 }
-/* Starea de pornire a animației de deschidere */
+
 @starting-style{
     .modal[open]{
         opacity: 0;

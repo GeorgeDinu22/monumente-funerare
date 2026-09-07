@@ -177,7 +177,27 @@ const AccordionGallery = ({
         }
     };
 
+    const [show,setShow] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setShow(window.innerWidth > 768)
+        }
+
+        handleResize();
+
+        window.addEventListener("resize",handleResize)
+        
+        return () => {
+            window.removeEventListener("resize",handleResize);
+        }
+    },[])
+
     if (!count) return null;
+
+    if(!show){
+        return null;
+    }
 
     return (
         <div

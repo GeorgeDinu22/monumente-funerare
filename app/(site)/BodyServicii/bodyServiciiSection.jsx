@@ -82,12 +82,6 @@ export default function BodyServiciiSection(){
                 ))}
             </div>
 
-            {/*
-                Aceeași siluetă ca în /public/shapes/card-monument.svg, dar în unități
-                objectBoundingBox (0..1), pentru cine preferă clip-path: url(#formaCard).
-                Razele sunt date pe X şi pe Y separat (0.045 / 0.0329) fiindcă unitățile
-                normalizate nu sunt pătrate — valorile sunt calibrate pe un card ~380x520.
-            */}
             <svg className={styles.defs} aria-hidden="true" focusable="false">
                 <defs>
                     <clipPath id="formaCard" clipPathUnits="objectBoundingBox">

@@ -7,7 +7,6 @@ import Image from "next/image";
 const navigare = [
     { href: "/magazin", label: "Magazin" },
     { href: "/constructii-funerare", label: "Constructii Funerare" },
-    { href: "#galerie", label: "Galerie" },
     { href: "#footer", label: "Contact" },
 ];
 
@@ -23,7 +22,7 @@ export default async function FooterSection(){
                 <div className={styles.brand}>
                     <span className={styles.logo}>
                         <Image
-                            src="/logoV2.png"
+                            src="/logoV5.png"
                             alt="Logo Monumente Funerare"
                             width={100}
                             height={100}
@@ -57,25 +56,28 @@ export default async function FooterSection(){
                         <span key={rand}>{rand}</span>
                     ))}
                 </div>
-            </div>
 
-            <div className={styles.bottom}>
-                <small>© {an} Monumente Funerare. Toate drepturile rezervate.</small>
-                <div className={styles.legal}>
-                    <Link href="/confidentialitate">Politica de confidențialitate</Link>
+                <div className={styles.coloana}>
+                    <h3>Legal</h3>
+                    <div className={styles.legal}>
+                        <Link href="/confidentialitate">Politica de confidențialitate</Link>
+                    </div>
                 </div>
             </div>
 
-            <div className={styles.developer}>
-                Dezvoltat de{" "}
-                <Link
-                    href="https://www.georgeweb-design.ro/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.devLink}
-                >
-                    George Web Design
-                </Link>
+            <div className={styles.bottom}>
+                <p>© {an} Monumente Funerare. Toate drepturile rezervate.</p>
+                <div className={styles.developer}>
+                    Dezvoltat de{" "}
+                    <Link
+                        href="https://www.georgeweb-design.ro/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.devLink}
+                    >
+                        George Web Design
+                    </Link>
+                </div>
             </div>
         </footer>
     )

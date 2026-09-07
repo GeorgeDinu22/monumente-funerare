@@ -7,7 +7,6 @@
     padding-bottom: 40px;
 }
 
-/* ---------- Hero ---------- */
 
 .hero{
     position: relative;
@@ -69,9 +68,6 @@
 }
 
 
-
-
-
 .sectiune{
     display: flex;
     flex-direction: column;
@@ -93,7 +89,6 @@
     font-weight: var(--font-weight-3);
 }
 
-/* ---------- Ce construim ---------- */
 
 .grid{
     display: grid;
@@ -215,7 +210,6 @@
     display: none;
 }
 
-/* ---------- Contact ---------- */
 
 .ctaExpand{
     display: flex;
@@ -234,7 +228,7 @@
     line-height: 1.2;
     text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
 }
-.ctaExpand p{   
+.ctaExpand p{
     width: 90%;
     color: white;
     font-weight: var(--font-weight-2);
@@ -264,7 +258,6 @@
     outline-offset: 3px;
 }
 
-/* ---------- Animație de reveal la scroll ---------- */
 
 @media (prefers-reduced-motion: no-preference){
     .card[data-reveal],
@@ -381,4 +374,3 @@
         font-size: 18px;
     }
 }
-

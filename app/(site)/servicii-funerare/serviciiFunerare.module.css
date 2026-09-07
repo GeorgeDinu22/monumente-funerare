@@ -7,7 +7,6 @@
     padding-bottom: 40px;
 }
 
-/* ---------- Hero ---------- */
 
 .hero{
     position: relative;
@@ -42,7 +41,7 @@
         animation: none;
     }
 }
-/* voal peste imagine, ca textul să rămână lizibil */
+
 .hero::after{
     content: "";
     position: absolute;
@@ -92,7 +91,6 @@
     outline-offset: 3px;
 }
 
-/* ---------- Pachete ---------- */
 
 .header{
     display: flex;

@@ -8,10 +8,19 @@ import RevealLaScroll from "../RevealLaScroll/revealLaScroll";
 import ScrollGallery from "../ScrollGallery/scrollGallery";
 import styles from './serviciiFunerare.module.css';
 
+const titlu = "Servicii Funerare Non-stop, Pachete Complete";
+const descriere =
+    "Pachete funerare de la 2.900 lei: sicriu, transport funerar, acte de deces, îmbălsămare, coroane și repatriere din Europa. Un singur telefon și ne ocupăm de tot.";
+
 export const metadata = {
-    title: "Servicii Funerare Complete — Non-stop",
-    description:
-        "Pachete funerare complete: sicrie, transport funerar, acte de deces și organizarea ceremoniei. Disponibili non-stop, un singur telefon și ne ocupăm de tot.",
+    title: titlu,
+    description: descriere,
+    alternates: { canonical: "/servicii-funerare" },
+    openGraph: {
+        title: titlu,
+        description: descriere,
+        url: "/servicii-funerare",
+    },
 };
 
 const pachete = [

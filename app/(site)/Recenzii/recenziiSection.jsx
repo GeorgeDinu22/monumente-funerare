@@ -65,7 +65,6 @@ export default function RecenziiSection(){
     const [laSfarsit, setLaSfarsit] = useState(false);
     const [pozaActiva, setPozaActiva] = useState(null);
 
-    // Ține butoanele sincronizate cu poziția reală de scroll.
     const actualizeazaSageti = useCallback(() => {
         const el = scrollerRef.current;
         if (!el) return;
@@ -93,7 +92,6 @@ export default function RecenziiSection(){
         const el = scrollerRef.current;
         if (!el) return;
 
-        // Pasul = distanța dintre două carduri (lățime + gap), citită din DOM.
         const carduri = el.children;
         const pas = carduri.length > 1
             ? carduri[1].offsetLeft - carduri[0].offsetLeft
@@ -106,7 +104,6 @@ export default function RecenziiSection(){
         dialogRef.current?.showModal();
     }
 
-    // Click pe fundalul dialogului (nu pe imagine) închide modalul.
     function clickPeFundal(event){
         if (event.target === dialogRef.current) dialogRef.current.close();
     }

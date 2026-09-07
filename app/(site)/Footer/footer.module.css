@@ -5,7 +5,7 @@
     flex-direction: column;
     gap: 32px;
     margin-block: 32px 24px;
-    padding: 40px 24px;
+    padding: 32px 24px;
     border: 1px solid var(--border);
     border-radius: var(--radius-main);
     background-color: var(--bg-level-1);
@@ -32,7 +32,7 @@
 }
 .brand p{
     max-width: 40ch;
-    color: var(--muted);
+    color: white;
     font-size: 15px;
 }
 
@@ -51,7 +51,7 @@
 }
 .coloana a,
 .coloana span{
-    color: var(--muted);
+    color: white;
     font-size: 15px;
 }
 .coloana a{
@@ -66,10 +66,13 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding-top: 24px;
+    padding-top: 12px;
     border-top: 1px solid var(--border);
-    color: var(--muted);
+    color: white;
     font-size: 14px;
+}
+.bottom p{
+    font-size: clamp(12px,1.5vw,14px);
 }
 .legal{
     display: flex;
@@ -78,21 +81,20 @@
 }
 .legal a{
     transition: color 200ms ease;
+    text-decoration: 1px solid underline;
 }
 .legal a:hover{
     color: var(--primary);
 }
 
 .developer{
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 13px;
-    text-align: center;
+    color: white;
+    font-size: clamp(12px,1.5vw,14px);
+    text-align: left;
 }
 
 .devLink{
-    color: var(--primary);
+    color: white;
     font-weight: var(--font-weight-2);
     transition: opacity 200ms ease;
 }
@@ -114,8 +116,8 @@
         gap: 40px;
     }
     .logo img{
-        width: 72px;
-        height: 72px;
+        width: 80px;
+        height: 80px;
     }
     .bottom{
         flex-direction: row;

@@ -15,7 +15,6 @@
     text-align: center;
 }
 
-/* ---------- Categorii ---------- */
 
 .sectiune{
     display: flex;
@@ -117,7 +116,6 @@
     }
 }
 
-/* ---------- Animație de apariție ---------- */
 
 .pagina h1,
 .card:not([data-reveal]){
@@ -135,7 +133,6 @@
     }
 }
 
-/* ---------- Animație de reveal la scroll ---------- */
 
 @media (prefers-reduced-motion: no-preference){
     .card[data-reveal]{

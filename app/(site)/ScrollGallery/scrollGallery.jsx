@@ -1,5 +1,7 @@
+"use client";
 import Image from 'next/image';
 import styles from './scrollGallery.module.css';
+import { useEffect, useState } from 'react';
 
 const ScrollGallery = ({
     items = [],
@@ -9,6 +11,26 @@ const ScrollGallery = ({
     className = '',
 }) => {
     if (!items.length) return null;
+
+    const [show,setShow] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setShow(window.innerWidth < 768)
+        }
+
+        handleResize();
+
+        window.addEventListener("resize",handleResize)
+       
+        return () => {
+            window.removeEventListener("resize",handleResize);
+        }
+    },[])
+
+    if(!show){
+        return null;
+    }
 
     return (
         <div

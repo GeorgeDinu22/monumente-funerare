@@ -2,7 +2,7 @@
     max-width: 92%;
     width: 100%;
     padding-block: 100px 40px;
-} 
+}
 
 .inapoi{
     display: inline-flex;
@@ -184,7 +184,6 @@
     outline-offset: 3px;
 }
 
-/* ---------- Modal poze ---------- */
 
 .modal{
     position: fixed;
@@ -302,7 +301,6 @@
         opacity: 1;
     }
 }
-
 
 
 .descriere{

@@ -5,7 +5,7 @@ import { PhoneCall } from "lucide-react";
 import { companyInfo } from "../data/companyInfo";
 import styles from './header.module.css';
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const links = [
     { href: "/", label: "Acasă" },
@@ -32,12 +32,52 @@ function WhatsappIcon(){
 export default function Header(){
     const [open, setOpen] = useState(false);
 
+    useEffect(() => {
+        if(!open) return;
+
+        const anterior = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            document.body.style.overflow = anterior;
+        }
+    },[open]);
+
+    useEffect(() => {
+        if(!open) return;
+
+        const query = window.matchMedia("(min-width: 768px)");
+
+        if(query.matches){
+            setOpen(false);
+            return;
+        }
+
+        const laSchimbare = (eveniment) => {
+            if(eveniment.matches) setOpen(false);
+        }
+
+        query.addEventListener("change",laSchimbare);
+        return () => query.removeEventListener("change",laSchimbare);
+    },[open]);
+
+    useEffect(() => {
+        if(!open) return;
+
+        const inchideCuEscape = (eveniment) => {
+            if(eveniment.key === "Escape") setOpen(false);
+        }
+
+        window.addEventListener("keydown",inchideCuEscape);
+        return () => window.removeEventListener("keydown",inchideCuEscape);
+    },[open]);
+
     return(
         <>
             <header className={styles.header}>
                 <Link href="/" className={styles.logo} onClick={() => setOpen(false)}>
                     <Image
-                        src="/logoV2.png"
+                        src="/logoV5.png"
                         alt="Logo Monumente Funerare"
                         width={120}
                         height={120}
@@ -75,7 +115,7 @@ export default function Header(){
                         className={`${styles.burger} ${open ? styles.burgerOpen : ""}`}
                         onClick={() => {
                             if (window.matchMedia("(min-width: 768px)").matches) return;
-                            setOpen((v) => !v);
+                            setOpen((valoare) => !valoare);
                         }}
                         aria-label={open ? "Închide meniul" : "Deschide meniul"}
                         aria-expanded={open}

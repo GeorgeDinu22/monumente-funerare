@@ -2,8 +2,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import styles from './constructiiFunerare.module.css';
 
-// Videoul de fundal se pune în /public/video/. Până atunci se vede doar
-// posterul, așa că imaginea de mai jos ține locul lui.
 const VIDEO = "/video/backgroundVideo.mp4";
 const POSTER = "/images/atelier.jpg";
 

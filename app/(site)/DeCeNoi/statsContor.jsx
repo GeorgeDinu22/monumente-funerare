@@ -11,7 +11,6 @@ const statistici = [
 
 const DURATA = 1800;
 
-// Pornește repede și frânează spre final, ca numărătoarea să nu pară mecanică.
 function franare(t){
     return 1 - Math.pow(1 - t, 3);
 }
@@ -59,7 +58,6 @@ function Numar({ tinta, pornit }){
     useEffect(() => {
         if (!pornit) return;
 
-        // Dacă utilizatorul a cerut mișcare redusă, punem direct cifra finală.
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
             setValoare(tinta);
             return;
@@ -79,8 +77,6 @@ function Numar({ tinta, pornit }){
         return () => cancelAnimationFrame(cadru);
     }, [pornit, tinta]);
 
-    // Cifra finală stă dedesubt transparentă: rezervă lățimea, ca layout-ul
-    // să nu sară de la o cifră la patru, și e ce citește cititorul de ecran.
     return(
         <span className={styles.numar}>
             <span className={styles.numarFinal}>{tinta}</span>

@@ -38,8 +38,14 @@
   --admin-sidebar-width: 260px;
 }
 
-html{
-  scroll-behavior: smooth;  
+html:has(:target){
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html:has(:target){
+    scroll-behavior: auto;
+  }
 }
 
 body {

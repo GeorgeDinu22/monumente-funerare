@@ -9,10 +9,19 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import SkeletonCategorii from "../Skeletons/skeletonCategorii";
 
+const titlu = "Magazin Monumente și Cruci Funerare";
+const descriere =
+    "Monumente funerare, cruci, borduri, placări și accesorii din granit și marmură, grupate pe categorii. Prețuri afișate, livrare și montaj cu echipa noastră.";
+
 export const metadata = {
-    title: "Magazin — Categorii de produse funerare",
-    description:
-        "Monumente, cruci, borduri, placări și accesorii funerare, grupate pe categorii. Alegeți categoria dorită și vedeți toate produsele disponibile.",
+    title: titlu,
+    description: descriere,
+    alternates: { canonical: "/magazin" },
+    openGraph: {
+        title: titlu,
+        description: descriere,
+        url: "/magazin",
+    },
 };
 
 async function BodyPage(){

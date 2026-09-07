@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "../globals.css";
 import Header from "./Header/header";
 import LoadingScreen from "./LoadingScreen/loadingScreen";
+import { siteUrl, numeSite, locale, descriereImplicita } from "./data/seo";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -10,9 +11,27 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Monumente Funerare",
-  description:
-    "Monumente funerare realizate cu respect, atenție la detalii și materiale de calitate. Descoperă modele de cruci și monumente funerare potrivite pentru fiecare nevoie.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `Servicii Funerare Complete Non-stop | ${numeSite}`,
+    template: `%s | ${numeSite}`,
+  },
+  description: descriereImplicita,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale,
+    siteName: numeSite,
+    url: "/",
+    title: `Servicii Funerare Complete Non-stop | ${numeSite}`,
+    description: descriereImplicita,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
