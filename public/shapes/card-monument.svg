@@ -1,17 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 68" preserveAspectRatio="none">
-  <!--
-    Banda de sus a cardului (doar treapta), pe o lățime de referință de 200.
-      - umerii  : linia y=58, pe toată lățimea
-      - plinta  : x 54 -> 146 (92 = 46% din lățime), urcă până la y=0
-                  => ridicare de 58 peste umeri (29% din lățime)
-      - raza    : 9 peste tot (4.5% din lățime)
-    Cele 4 colțuri convexe (sweep=1) rotunjesc spre exterior, cele 2 concave
-    (sweep=0) sunt racorduri care ADAUGĂ material în unghiul reflex de la
-    baza plintei - de aia treapta arată turnată, nu lipită.
-    Z închide pe y=68, deci sub linia umerilor rămâne plin pe toată lățimea.
 
-    Ca să înalți/cobori capul: schimbă cele două "v" (40) și, cu aceeași
-    diferență, y-ul umerilor (58), înălțimea benzii (68) și step-ratio din CSS.
-  -->
   <path fill="#fff" d="M0 68V67a9 9 0 0 1 9-9h36a9 9 0 0 0 9-9V9a9 9 0 0 1 9-9h74a9 9 0 0 1 9 9v40a9 9 0 0 0 9 9h36a9 9 0 0 1 9 9v1Z"/>
 </svg>
