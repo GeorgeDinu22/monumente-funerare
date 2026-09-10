@@ -31,14 +31,11 @@
 }
 
 
-.logo{
-    display: flex;
-    align-items: center;
-    margin-left: 2px;
-}
+
 .logo img{
-    height: 60px;
-    width: 60px;
+    height: 52px;
+    width: 125px;
+    margin-left: 6px;
 }
 
 .navDesktop{
@@ -291,18 +288,15 @@
 .callDesktop:hover{
     background-color: var(--secondary);
 }
-@media (min-width: 876px){
-    .logo{
-        font-size: 24px;
-    }
+@media (min-width: 950px){
     .header{
         top: 12px;
         height: 80px;
         width: 92%;
     }
     .logo img{
-        height: 64px;
-        width: 64px;
+        height: 60px;
+        width: 150px;
     }
     .call{
         display: none;

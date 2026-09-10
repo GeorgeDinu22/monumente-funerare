@@ -4,34 +4,39 @@ import styles from './galerie.module.css';
 
 const proiecte = [
     {
-        image: "/images/monument-granit-negru.jpg",
+        image: "/constrcutii-funerare/proiect1.jpeg",
         label: "Monument din granit negru",
-        alt: "Monument din granit negru lustruit, vedere frontală",
+        alt: "Monument din granit negru cu gravură de înger și inimă, montat pe loc de veci",
     },
     {
-        image: "/images/cruce-marmura.jpg",
-        label: "Cruce din marmură albă",
-        alt: "Cruce din marmură albă montată pe soclu",
+        image: "/constrcutii-funerare/proiect2.jpeg",
+        label: "Monument dublu din granit",
+        alt: "Monument dublu din granit gri, cu cruce centrală și medalioane foto",
     },
     {
-        image: "/images/placare-loc-veci.jpg",
-        label: "Placare loc de veci",
-        alt: "Locuri de veci placate cu piatră naturală",
+        image: "/constrcutii-funerare/proiect3.jpeg",
+        label: "Monument modern din granit negru",
+        alt: "Monument modern din granit negru lustruit, cu portret gravat și pietriș alb",
     },
     {
-        image: "/images/bordura-granit.jpg",
-        label: "Bordură din granit",
-        alt: "Bordura din piatră care delimitează locul de veci",
+        image: "/constrcutii-funerare/proiect4.jpeg",
+        label: "Cavou placat cu marmură albă",
+        alt: "Cavou placat cu marmură albă, cu cruce și două plăci gravate",
     },
     {
-        image: "/images/gravura.jpg",
-        label: "Gravură cu litere aurii",
-        alt: "Placă memorială cu gravură în piatră",
+        image: "/constrcutii-funerare/proiect5.jpeg",
+        label: "Monument din marmură cu aripi",
+        alt: "Monument din marmură albă sculptat cu aripi, cu bordură și pietriș",
     },
     {
-        image: "/images/atelier.jpg",
-        label: "Lucrări în atelier",
-        alt: "Gravarea literelor în atelier",
+        image: "/constrcutii-funerare/proiect6.jpeg",
+        label: "Monument din granit gri",
+        alt: "Monument din granit gri cu cruce sculptată și placă gravată de familie",
+    },
+    {
+        image: "/constrcutii-funerare/proiect7.jpeg",
+        label: "Loc de veci dublu placat",
+        alt: "Loc de veci dublu placat cu granit, cu cruce din marmură sculptată",
     },
 ];
 

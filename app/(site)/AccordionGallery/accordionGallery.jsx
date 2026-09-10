@@ -246,7 +246,8 @@ const AccordionGallery = ({
                                 <Image
                                     src={item.image}
                                     alt={item.alt || item.label || ''}
-                                    fill
+                                    width={750}
+                                    height={750}
                                     sizes={sizes}
                                     priority={priority}
                                     draggable={false}

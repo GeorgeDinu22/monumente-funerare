@@ -27,8 +27,8 @@
     font-size: 20px;
 }
 .logo img{
-    width: 68px;
-    height: 68px;
+    width: 150px;
+    height: 60px;
 }
 .brand p{
     max-width: 40ch;
@@ -116,8 +116,8 @@
         gap: 40px;
     }
     .logo img{
-        width: 80px;
-        height: 80px;
+        width: 180px;
+        height: 64px;
     }
     .bottom{
         flex-direction: row;
