@@ -77,7 +77,7 @@ export default function Header(){
             <header className={styles.header}>
                 <Link href="/" className={styles.logo} onClick={() => setOpen(false)}>
                     <Image
-                        src="/logoV2.webp"
+                        src="/logo.webp"
                         alt="Logo Monumente Funerare"
                         width={120}
                         height={120}
