@@ -8,6 +8,7 @@ import { CategoriiCached } from "../../../cache/categoriiCahed";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import SkeletonCategorii from "../Skeletons/skeletonCategorii";
+import { imagineOpenGraph } from "../data/seo";
 
 const titlu = "Magazin Monumente și Cruci Funerare";
 const descriere =
@@ -21,6 +22,7 @@ export const metadata = {
         title: titlu,
         description: descriere,
         url: "/magazin",
+        ...imagineOpenGraph,
     },
 };
 

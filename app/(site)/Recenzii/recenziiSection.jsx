@@ -56,6 +56,76 @@ const recenzii = [
             alt: "Gravura de pe monumentul montat pentru Cristian Neagu",
         },
     },
+    {
+        nume: "Georgeta Stan",
+        localitate: "Câmpina",
+        stele: 5,
+        text: "Am sunat seara târziu și mi-au răspuns imediat. Ne-au preluat toate formalitățile, iar noi am putut sta lângă familie.",
+        poza: {
+            src: "/images/monument-granit-negru.jpg",
+            alt: "Monument montat pentru familia Stan",
+        },
+    },
+    {
+        nume: "Ion Radu",
+        localitate: "Buzău",
+        stele: 5,
+        text: "Prețul comunicat la început a rămas neschimbat până la final. Fără costuri ascunse, fără surprize neplăcute.",
+        poza: {
+            src: "/images/cruce-marmura.jpg",
+            alt: "Cruce din marmură montată pentru familia Radu",
+        },
+    },
+    {
+        nume: "Adriana Tudor",
+        localitate: "Găești",
+        stele: 5,
+        text: "Ne-au ajutat să alegem modelul potrivit fără să insiste pe variantele scumpe. Rezultatul final a depășit așteptările.",
+        poza: {
+            src: "/images/placare-loc-veci.jpg",
+            alt: "Loc de veci amenajat pentru familia Tudor",
+        },
+    },
+    {
+        nume: "Mihai Constantin",
+        localitate: "Alexandria",
+        stele: 5,
+        text: "Echipa de montaj a venit la ora stabilită și a lucrat curat. Au refăcut și aleea din jur, deși nu era în înțelegere.",
+        poza: {
+            src: "/images/gravura.jpg",
+            alt: "Detaliu de gravură pentru familia Constantin",
+        },
+    },
+    {
+        nume: "Rodica Ene",
+        localitate: "Râmnicu Vâlcea",
+        stele: 5,
+        text: "Am revenit după cinci ani pentru o a doua lucrare. Aceeași seriozitate și aceeași grijă pentru detalii ca prima dată.",
+        poza: {
+            src: "/images/candela.jpg",
+            alt: "Candelă la monumentul familiei Ene",
+        },
+    },
+    {
+        nume: "Florin Barbu",
+        localitate: "Giurgiu",
+        stele: 5,
+        text: "Ne-au trimis poze pe parcursul lucrării, ca să vedem cum avansează. Comunicare excelentă de la început până la final.",
+        poza: {
+            src: "/images/monument-granit-negru.jpg",
+            alt: "Monument din granit pentru familia Barbu",
+        },
+    },
+    {
+        nume: "Simona Voicu",
+        localitate: "Târgu Jiu",
+        stele: 5,
+        text: "Discreți și atenți în tot procesul. Nu am simțit nicio secundă că suntem doar o comandă pentru ei.",
+        poza: {
+            src: "/images/placare-loc-veci.jpg",
+            alt: "Loc de veci placat pentru familia Voicu",
+        },
+    },
 ];
 
 export default function RecenziiSection(){

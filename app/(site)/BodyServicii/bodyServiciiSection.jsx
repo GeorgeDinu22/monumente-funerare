@@ -5,20 +5,9 @@ import styles from './bodyServicii.module.css';
 
 const servicii = [
     {
-        id: "servicii-funerare",
-        titlu: "Servicii funerare",
-        imagine: "/images/candela.jpg",
-        href: "/servicii-funerare",
-        puncte: [
-            "Organizare completă a ceremoniei, non-stop",
-            "Transport funerar și acte necesare",
-            "Sicrie, cruci și accesorii pe loc",
-        ],
-    },
-    {
         id: "constructii-funerare",
         titlu: "Construcții funerare",
-        imagine: "/images/atelier.jpg",
+        imagine: "/images/ctaImage.jpeg",
         href: "/constructii-funerare",
         puncte: [
             "Cavouri, cripte și lucrări de zidărie executate de la zero",
@@ -29,7 +18,8 @@ const servicii = [
     {
         id: "magazin",
         titlu: "Magazin",
-        imagine: "/images/cruce-marmura.jpg",
+        // imagine: "/images/cruce-marmura.jpg",
+        video:'/images/video.mp4',
         href: "/magazin",
         puncte: [
             "Cruci din marmură și granit, gata de livrare",
@@ -54,13 +44,21 @@ export default function BodyServiciiSection(){
                 {servicii.map((serviciu) => (
                     <div key={serviciu.id} className={styles.cardWrap}>
                     <div className={styles.card}>
-                        <Image
-                            className={styles.imagine}
-                            src={serviciu.imagine}
-                            alt=""
-                            fill
-                            sizes="(min-width: 1024px) 33vw, 92vw"
-                        />
+                        {serviciu.imagine ? (
+                            <Image
+                                className={styles.imagine}
+                                src={serviciu.imagine}
+                                alt=""
+                                width={750}
+                                height={750}
+                                sizes="(min-width: 1024px) 33vw, 92vw"
+                            />
+                        ) : 
+                            (
+                                <video className={styles.video} playsInline autoPlay loop muted src={serviciu.video}/>
+                            )
+                        }
+                        
 
                         <div className={styles.voal} aria-hidden="true" />
 

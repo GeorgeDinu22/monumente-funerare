@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, PackageOpen, Phone } from "lucide-react";
 import { companyInfo } from "../../data/companyInfo";
+import { imagineOpenGraph } from "../../data/seo";
 import CardProdus from "../../CardProdus/cardProdus";
 import FooterSection from "../../Footer/footerSection";
 import RevealLaScroll from "../../RevealLaScroll/revealLaScroll";
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }){
             title: titlu,
             description: descriere,
             url: cale,
-            ...(categorie.poster ? { images: [categorie.poster] } : {}),
+            ...(categorie.poster ? { images: [categorie.poster] } : imagineOpenGraph),
         },
     };
 }

@@ -3,7 +3,7 @@ import { Manrope } from "next/font/google";
 import "../globals.css";
 import Header from "./Header/header";
 import LoadingScreen from "./LoadingScreen/loadingScreen";
-import { siteUrl, numeSite, locale, descriereImplicita } from "./data/seo";
+import { siteUrl, numeSite, locale, descriereImplicita, imagineOpenGraph } from "./data/seo";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -27,6 +27,13 @@ export const metadata: Metadata = {
     url: "/",
     title: `Servicii Funerare Complete Non-stop | ${numeSite}`,
     description: descriereImplicita,
+    ...imagineOpenGraph,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Servicii Funerare Complete Non-stop | ${numeSite}`,
+    description: descriereImplicita,
+    images: ["/opengraph-image.jpg"],
   },
   robots: {
     index: true,

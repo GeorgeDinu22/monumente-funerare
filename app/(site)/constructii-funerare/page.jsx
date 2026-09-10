@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Check, Hammer, Ruler, Truck, Wrench } from "lucide-react";
 import AccordionGallery from "../AccordionGallery/accordionGallery";
 import { companyInfo } from "../data/companyInfo";
+import { imagineOpenGraph } from "../data/seo";
 import FooterSection from "../Footer/footerSection";
 import RevealLaScroll from "../RevealLaScroll/revealLaScroll";
 import ScrollExpand from "../ScrollExpand/scrollExpand";
@@ -21,6 +22,7 @@ export const metadata = {
         title: titlu,
         description: descriere,
         url: "/constructii-funerare",
+        ...imagineOpenGraph,
     },
 };
 

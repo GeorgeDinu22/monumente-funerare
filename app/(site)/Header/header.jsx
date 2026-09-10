@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 
 const links = [
     { href: "/", label: "Acasă" },
-    { href: "/servicii-funerare", label: "Servicii Funerare" },
     { href: "/constructii-funerare", label: "Construcții Funerare" },
     { href: "/magazin", label: "Magazin" },
 ];

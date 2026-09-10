@@ -8,6 +8,17 @@ export const locale = "ro_RO";
 export const descriereImplicita =
     "Servicii funerare complete, disponibile non-stop, și monumente funerare din granit și marmură. Sicrie, transport, acte de deces, cavouri și cruci.";
 
+export const imagineOpenGraph = {
+    images: [
+        {
+            url: "/opengraph-image.jpg",
+            width: 1200,
+            height: 630,
+            alt: `${numeSite} — servicii funerare complete non-stop și monumente funerare din granit și marmură`,
+        },
+    ],
+};
+
 export function truncheazaDescriere(text, max = 155) {
     if (!text) return descriereImplicita;
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { linkWhatsAppCuMesaj } from "../../../data/companyInfo";
-import { truncheazaDescriere } from "../../../data/seo";
+import { truncheazaDescriere, imagineOpenGraph } from "../../../data/seo";
 import FooterSection from "../../../Footer/footerSection";
 import GalerieProdus from "./galerieProdus";
 import ActiuniProdus from "./actiuniProdus";
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }){
             title: produs.titlu,
             description: descriere,
             url: cale,
-            ...(produs.poster ? { images: [produs.poster] } : {}),
+            ...(produs.poster ? { images: [produs.poster] } : imagineOpenGraph),
         },
     };
 }

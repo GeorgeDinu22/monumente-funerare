@@ -7,7 +7,7 @@ export default function CtaSection(){
     return(
         <section id="contact" className={styles.cta}>
             <ScrollExpand
-                src="/images/ctaImage.jpeg"
+                src="/images/candela.jpg"
                 alt="Monumente Funerare"
                 title=""
                 scrollHint=""

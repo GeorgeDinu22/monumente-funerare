@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
-import { numeSite } from './data/seo';
+import { numeSite, imagineOpenGraph } from './data/seo';
 import HeroSection from './Hero/heroSection';
 import AnunturiSection from './Anunturi/anunturiSection';
 import BodyServiciiSection from './BodyServicii/bodyServiciiSection';
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     title: titlu,
     description: descriere,
     url: '/',
+    ...imagineOpenGraph,
   },
 };
 
