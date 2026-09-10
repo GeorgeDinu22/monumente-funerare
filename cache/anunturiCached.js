@@ -14,6 +14,7 @@ export async function AnunturiCached(){
             .eq("is_active",true)
             .order("created_at",{ascending:false});
         if(error){
+            console.error("[ERROR] AnunturiCached Supabase: ",error?.message)
             throw new Error(error)
         }
         return data;

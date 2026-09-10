@@ -22,10 +22,10 @@ export default async function FooterSection(){
                 <div className={styles.brand}>
                     <span className={styles.logo}>
                         <Image
-                            src="/logo.webp"
+                            src="/logoV2.webp"
                             alt="Logo Monumente Funerare"
-                            width={100}
-                            height={100}
+                            width={120}
+                            height={120}
                         />
                     </span>
                     <p>
