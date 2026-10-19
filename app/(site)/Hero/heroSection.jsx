@@ -26,11 +26,11 @@ export default function HeroSection(){
                         priority={index === 0}
                     />
                 ))}
-            </div>
+            </div>  Funerare de la 0
             <div className={styles.contentHero}>
-                <h1>Servicii <span className={styles.colorText}>Funerare</span> <span className={styles.underlineText}>Complete</span></h1>
+                <h1>Construcții <span className={styles.colorText}>Funerare</span> <span className={styles.underlineText}>de la 0</span></h1>
                 <p>
-                    Servicii funerare complete și monumente funerare realizate cu grijă, respect și devotament pentru cei dragi.
+                    Servicii  complete și monumente funerare realizate cu grijă, respect și devotament pentru cei dragi.
                 </p>
                 <Link href={companyInfo.telefon.href}>
                     Sună acum
