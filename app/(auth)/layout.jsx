@@ -1,5 +1,6 @@
 import { Manrope } from "next/font/google";
 import "../globals.css";
+import { siteUrl, imagineOpenGraph } from "../(site)/data/seo";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -7,7 +8,10 @@ const manrope = Manrope({
 });
 
 export const metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Autentificare",
+  openGraph: imagineOpenGraph,
+  twitter: { card: "summary_large_image", images: ["/opengraph-image.jpg"] },
   robots: { index: false, follow: false },
 };
 

@@ -28,6 +28,15 @@ export const metadata = {
 
 const lucrari = [
     {
+        id: "8",
+        titlu: "Cavou 3 cripte",
+        imagine: "/constrcutii-funerare/proiect8.jpeg",
+        detalii: [
+            "Hol de vizitare pe mijloc",
+            "Îmbrăcat intr un granit Absolute Black"
+        ],
+    },
+    {
         id: "1",
         titlu: "Cavou",
         imagine: "/constrcutii-funerare/proiect1.jpeg",
@@ -38,6 +47,17 @@ const lucrari = [
         ],
     },
     {
+        id: "2",
+        titlu: "Cavou",
+        imagine: "/constrcutii-funerare/proiect2.jpeg",
+        detalii: [
+            "Îmbrăcat intr un granit SILVER",
+            "Monument stil aripi ",
+            "Felinar și vază",
+            "Jardiniere executate manual"
+        ],
+    },
+        {
         id: "2",
         titlu: "Cavou",
         imagine: "/constrcutii-funerare/proiect2.jpeg",

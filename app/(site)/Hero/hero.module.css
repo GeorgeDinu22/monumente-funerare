@@ -9,17 +9,43 @@
     border-radius:var(--radius-main);
     overflow: hidden;
 }
-.heroSection img{
-    width: 100%;
-    height: 100%;
+.fundal{
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-level-1);
+}
+.slide{
     object-fit: cover;
     opacity: 0;
-    animation: ZoomIn 1000ms ease forwards 250ms;
+    animation: Slideshow 24s linear infinite both;
+    animation-delay: calc(var(--i) * 6s + 250ms);
 }
-@keyframes ZoomIn {
-    100%{
+@keyframes Slideshow {
+    0%{
+        opacity: 0;
+        transform: scale(1);
+    }
+    5%{
         opacity: 1;
-        transform: scale(1.2);
+    }
+    25%{
+        opacity: 1;
+    }
+    30%{
+        opacity: 0;
+        transform: scale(1.15);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(1.15);
+    }
+}
+@media (prefers-reduced-motion: reduce){
+    .slide{
+        animation: none;
+    }
+    .slide:first-child{
+        opacity: 1;
     }
 }
 .contentHero{

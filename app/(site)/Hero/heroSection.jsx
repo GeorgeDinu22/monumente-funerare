@@ -3,16 +3,30 @@ import Link from "next/link";
 import { companyInfo } from "../data/companyInfo";
 import styles from './hero.module.css';
 
+const imaginiFundal = [
+    "/constrcutii-funerare/proiect5.jpeg",
+    "/constrcutii-funerare/proiect2.jpeg",
+    "/constrcutii-funerare/proiect3.jpeg",
+    "/constrcutii-funerare/proiect6.jpeg",
+];
+
 export default function HeroSection(){
     return(
         <div className={styles.heroSection}>
-            <Image
-                src="/constrcutii-funerare/proiect5.jpeg"
-                alt=""
-                priority
-                width={900}
-                height={900}
-            />
+            <div className={styles.fundal} aria-hidden="true">
+                {imaginiFundal.map((src, index) => (
+                    <Image
+                        key={src}
+                        className={styles.slide}
+                        style={{ '--i': index }}
+                        src={src}
+                        alt=""
+                        fill
+                        sizes="92vw"
+                        priority={index === 0}
+                    />
+                ))}
+            </div>
             <div className={styles.contentHero}>
                 <h1>Servicii <span className={styles.colorText}>Funerare</span> <span className={styles.underlineText}>Complete</span></h1>
                 <p>

@@ -18,7 +18,6 @@ const servicii = [
     {
         id: "magazin",
         titlu: "Magazin",
-        // imagine: "/images/cruce-marmura.jpg",
         video:'/images/video.mp4',
         href: "/magazin",
         puncte: [

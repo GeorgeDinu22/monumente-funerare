@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { companyInfo } from "../data/companyInfo";
+import { imagineOpenGraph } from "../data/seo";
 import FooterSection from "../Footer/footerSection";
 import styles from './confidentialitate.module.css';
 
@@ -8,6 +9,13 @@ export const metadata = {
     description:
         "Cum prelucrăm datele cu caracter personal pe acest site: adresa IP folosită strict pentru protecție anti-abuz, statistici anonime și drepturile tale conform GDPR.",
     alternates: { canonical: "/confidentialitate" },
+    openGraph: {
+        title: "Politica de Confidențialitate",
+        description:
+            "Cum prelucrăm datele cu caracter personal pe acest site: adresa IP folosită strict pentru protecție anti-abuz, statistici anonime și drepturile tale conform GDPR.",
+        url: "/confidentialitate",
+        ...imagineOpenGraph,
+    },
     robots: {
         index: true,
         follow: true,

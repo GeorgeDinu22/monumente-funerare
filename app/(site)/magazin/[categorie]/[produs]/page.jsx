@@ -47,7 +47,7 @@ export async function generateMetadata({ params }){
             title: produs.titlu,
             description: descriere,
             url: cale,
-            ...(produs.poster ? { images: [produs.poster] } : imagineOpenGraph),
+            ...imagineOpenGraph,
         },
     };
 }

@@ -4,6 +4,7 @@ import { numeSite, imagineOpenGraph } from './data/seo';
 import HeroSection from './Hero/heroSection';
 import AnunturiSection from './Anunturi/anunturiSection';
 import BodyServiciiSection from './BodyServicii/bodyServiciiSection';
+import ModelViewerSection from './ModelViewer/modelViewerSection';
 import DeCeNoiSection from './DeCeNoi/deCeNoiSection';
 import RecenziiSection from './Recenzii/recenziiSection';
 import GalerieSection from './Galerie/galerieSection';
@@ -34,6 +35,7 @@ export default function Home() {
       <AnunturiSection/>
     </Suspense>
     <BodyServiciiSection/>
+    <ModelViewerSection/>
     <DeCeNoiSection/>
     <RecenziiSection/>
     <GalerieSection/>
