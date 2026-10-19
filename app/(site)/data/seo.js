@@ -1,5 +1,4 @@
-export const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+export const siteUrl = "https://monumente-funerare.vercel.app";
 
 export const numeSite = "Filip Funerare";
 
@@ -12,6 +11,7 @@ export const imagineOpenGraph = {
     images: [
         {
             url: "/opengraph-image.jpg",
+            type: "image/jpeg",
             width: 1200,
             height: 630,
             alt: `${numeSite} — servicii funerare complete non-stop și monumente funerare din granit și marmură`,
