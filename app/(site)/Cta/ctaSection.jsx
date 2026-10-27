@@ -1,25 +1,23 @@
+import Image from "next/image";
 import Link from "next/link";
-import ScrollExpand from "../ScrollExpand/scrollExpand";
+import CtaIntersectionObserver from "./ctaIntersectionObserver";
 import { companyInfo } from "../data/companyInfo";
 import styles from './cta.module.css';
 
 export default function CtaSection(){
     return(
         <section id="contact" className={styles.cta}>
-            <ScrollExpand
-                src="/images/candela.jpg"
-                alt="Monumente Funerare"
-                title=""
-                scrollHint=""
-                height={650}
-                startRadius={16}
-                startWidth={0}
-                endRadius={16}
-                scrollDistance={1}
-                holdDistance={0.25}
-                useWindowScroll
-            >
-                <div className={styles.container}>
+            <CtaIntersectionObserver className={styles.media}>
+                <Image
+                    src="/images/candela.jpg"
+                    alt="Monumente Funerare"
+                    fill
+                    sizes="92vw"
+                    className={styles.image}
+                />
+                <div className={styles.scrim} />
+
+                <CtaIntersectionObserver className={styles.container}>
                     <div className={styles.text}>
                         <h2>Îți stăm alături <span className={styles.colorText}>cu răbdare și grijă</span></h2>
                         <p>
@@ -33,8 +31,8 @@ export default function CtaSection(){
                             Discută cu noi
                         </Link>
                     </div>
-                </div>
-            </ScrollExpand>
+                </CtaIntersectionObserver>
+            </CtaIntersectionObserver>
         </section>
     )
 }

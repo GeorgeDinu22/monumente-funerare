@@ -66,7 +66,7 @@ export default async function FooterSection(){
             </div>
 
             <div className={styles.bottom}>
-                <p>© {an} Monumente Funerare. Toate drepturile rezervate.</p>
+                <p>© {an} Filip Funerare. Toate drepturile rezervate.</p>
                 <div className={styles.developer}>
                     Dezvoltat de{" "}
                     <Link

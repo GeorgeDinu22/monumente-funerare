@@ -6,7 +6,7 @@ import styles from './deCeNoi.module.css';
 const statistici = [
     { id: "experienta", tinta: 20, sufix: "+", eticheta: "ani de experiență" },
     { id: "proiecte", tinta: 1067, sufix: "+", eticheta: "proiecte finalizate" },
-    { id: "recenzii", tinta: 47, sufix: "+", eticheta: "recenzii de 5 stele" },
+    { id: "recenzii", tinta: 876, sufix: "+", eticheta: "recenzii de 5 stele" },
 ];
 
 const DURATA = 1800;

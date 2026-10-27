@@ -18,7 +18,7 @@ export default function CardProdus({ imaginePoster, titlu, pret, slug,slugParint
 
             <div className={styles.body}>
                     <h3>{titlu}</h3>
-                    <p>{pret ? `${pret} RON` : "Pret la cerere"}</p>
+                    <p>{pret ? `${pret} RON` : "Preț la cerere"}</p>
 
                 <span className={styles.buton}>
                     Vezi produs

@@ -89,7 +89,7 @@ export async function BodyPage({params}){
                             <h1 className={styles.titlu}>{produs.titlu}</h1>
 
                             <div className={styles.pret}>
-                                <span className={styles.pretValoare}>{produs.pret ? `${produs.pret} RON` : "Pret la cerere"}</span>
+                                <span className={styles.pretValoare}>{produs.pret ? `${produs.pret} RON` : "Preț la cerere"}</span>
                             </div>
 
                             <ActiuniProdus

@@ -1,15 +1,66 @@
 .cta{
     max-width: 92%;
     width: 100%;
+    margin-top: 80px;
+}
+
+.media{
+    --bar-left: 22%;
+    --bar-right: 78%;
+    --arm-top: 22%;
+    --arm-bottom: 74%;
+    position: relative;
+    height: 760px;
+    overflow: hidden;
+    clip-path: polygon(
+        var(--bar-left) 0, var(--bar-right) 0,
+        var(--bar-right) var(--arm-top), 100% var(--arm-top),
+        100% var(--arm-bottom), var(--bar-right) var(--arm-bottom),
+        var(--bar-right) 100%, var(--bar-left) 100%,
+        var(--bar-left) var(--arm-bottom), 0 var(--arm-bottom),
+        0 var(--arm-top), var(--bar-left) var(--arm-top)
+    );
+    transition:
+        opacity 0.8s ease-out,
+        scale 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        translate 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.media[data-observing]:not([data-visible]){
+    opacity: 0;
+    scale: 0.9;
+    translate: 0 64px;
+}
+
+.image{
+    object-fit: cover;
+}
+
+.scrim{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.1) 45%, rgba(0, 0, 0, 0.35));
 }
 
 .container{
+    position: absolute;
+    inset: var(--arm-top) 0 calc(100% - var(--arm-bottom));
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 16px;
-    width: 100%;
+    padding-inline: 6%;
+    text-align: center;
+    transition:
+        opacity 0.7s ease-out 0.3s,
+        translate 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+
+.container[data-observing]:not([data-visible]){
+    opacity: 0;
+    translate: 0 32px;
 }
 
 .text{
@@ -70,9 +121,32 @@
     outline-offset: 2px;
 }
 
+@media (prefers-reduced-motion: reduce){
+    .media,
+    .container{
+        transition: opacity 0.3s linear;
+    }
+    .media[data-observing]:not([data-visible]){
+        scale: 1;
+        translate: 0;
+    }
+    .container[data-observing]:not([data-visible]){
+        translate: 0;
+    }
+}
+
 @media (min-width: 1024px){
     .cta{
         padding-block: 60px 80px;
+    }
+    .media{
+        --bar-left: 32%;
+        --bar-right: 68%;
+        --arm-top: 24%;
+        --arm-bottom: 66%;
+        max-width: 750px;
+        height: 720px;
+        margin-inline: auto;
     }
     .text h2{
         font-size: 40px;
