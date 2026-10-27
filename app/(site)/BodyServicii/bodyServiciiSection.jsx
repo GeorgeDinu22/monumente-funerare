@@ -33,10 +33,6 @@ export default function BodyServiciiSection(){
         <section id="servicii" className={styles.servicii}>
             <div className={styles.head}>
                 <h2>Serviciile noastre</h2>
-                <p>
-                    Ne ocupăm de tot ce ține de o lucrare funerară, de la ceremonie
-                    până la monumentul finalizat.
-                </p>
             </div>
 
             <div className={styles.grid}>

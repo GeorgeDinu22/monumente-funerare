@@ -49,8 +49,9 @@ const ScrollGallery = ({
                         <Image
                             src={item.image}
                             alt={item.alt || item.label || ''}
-                            fill
-                            sizes="82vw"
+                            width={600}
+                            height={800}
+                            sizes="76vw"
                         />
                         <span className={styles.overlay} aria-hidden="true" />
                     </div>

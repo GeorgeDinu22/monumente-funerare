@@ -13,6 +13,8 @@ const recenzii = [
         text: "Am comandat un monument din granit negru. Execuție impecabilă, montat exact la termenul promis. Recomand cu toată încrederea.",
         poza: {
             src: "/images/monument-granit-negru.jpg",
+            width: 1067,
+            height: 1600,
             alt: "Monument din granit negru comandat de Andrei Popescu",
         },
     },
@@ -23,6 +25,8 @@ const recenzii = [
         text: "Oameni serioși și foarte răbdători într-un moment greu pentru familia noastră. Ne-au explicat toate opțiunile fără să ne grăbească.",
         poza: {
             src: "/images/candela.jpg",
+            width: 1600,
+            height: 1067,
             alt: "Candelă aprinsă la monumentul familiei Ionescu",
         },
     },
@@ -33,6 +37,8 @@ const recenzii = [
         text: "Crucea din marmură arată exact ca în proiect. Gravura este foarte fină, iar prețul a fost corect.",
         poza: {
             src: "/images/cruce-marmura.jpg",
+            width: 1063,
+            height: 1600,
             alt: "Cruce din marmură albă montată pentru familia Dumitru",
         },
     },
@@ -43,6 +49,8 @@ const recenzii = [
         text: "S-au ocupat de tot: transport, montaj și placarea locului de veci. Totul curat și lăsat în ordine la final.",
         poza: {
             src: "/images/placare-loc-veci.jpg",
+            width: 1600,
+            height: 1067,
             alt: "Loc de veci placat și delimitat cu bordură din granit",
         },
     },
@@ -53,6 +61,8 @@ const recenzii = [
         text: "Recomand pentru calitatea materialelor. După doi ani monumentul arată la fel de bine ca în prima zi.",
         poza: {
             src: "/images/gravura.jpg",
+            width: 450,
+            height: 600,
             alt: "Gravura de pe monumentul montat pentru Cristian Neagu",
         },
     },
@@ -63,6 +73,8 @@ const recenzii = [
         text: "Am sunat seara târziu și mi-au răspuns imediat. Ne-au preluat toate formalitățile, iar noi am putut sta lângă familie.",
         poza: {
             src: "/images/monument-granit-negru.jpg",
+            width: 1067,
+            height: 1600,
             alt: "Monument montat pentru familia Stan",
         },
     },
@@ -73,6 +85,8 @@ const recenzii = [
         text: "Prețul comunicat la început a rămas neschimbat până la final. Fără costuri ascunse, fără surprize neplăcute.",
         poza: {
             src: "/images/cruce-marmura.jpg",
+            width: 1063,
+            height: 1600,
             alt: "Cruce din marmură montată pentru familia Radu",
         },
     },
@@ -83,6 +97,8 @@ const recenzii = [
         text: "Ne-au ajutat să alegem modelul potrivit fără să insiste pe variantele scumpe. Rezultatul final a depășit așteptările.",
         poza: {
             src: "/images/placare-loc-veci.jpg",
+            width: 1600,
+            height: 1067,
             alt: "Loc de veci amenajat pentru familia Tudor",
         },
     },
@@ -93,6 +109,8 @@ const recenzii = [
         text: "Echipa de montaj a venit la ora stabilită și a lucrat curat. Au refăcut și aleea din jur, deși nu era în înțelegere.",
         poza: {
             src: "/images/gravura.jpg",
+            width: 450,
+            height: 600,
             alt: "Detaliu de gravură pentru familia Constantin",
         },
     },
@@ -103,6 +121,8 @@ const recenzii = [
         text: "Am revenit după cinci ani pentru o a doua lucrare. Aceeași seriozitate și aceeași grijă pentru detalii ca prima dată.",
         poza: {
             src: "/images/candela.jpg",
+            width: 1600,
+            height: 1067,
             alt: "Candelă la monumentul familiei Ene",
         },
     },
@@ -113,6 +133,8 @@ const recenzii = [
         text: "Ne-au trimis poze pe parcursul lucrării, ca să vedem cum avansează. Comunicare excelentă de la început până la final.",
         poza: {
             src: "/images/monument-granit-negru.jpg",
+            width: 1067,
+            height: 1600,
             alt: "Monument din granit pentru familia Barbu",
         },
     },
@@ -123,6 +145,8 @@ const recenzii = [
         text: "Discreți și atenți în tot procesul. Nu am simțit nicio secundă că suntem doar o comandă pentru ei.",
         poza: {
             src: "/images/placare-loc-veci.jpg",
+            width: 1600,
+            height: 1067,
             alt: "Loc de veci placat pentru familia Voicu",
         },
     },
@@ -263,7 +287,8 @@ export default function RecenziiSection(){
                         <Image
                             src={pozaActiva.src}
                             alt={pozaActiva.alt}
-                            fill
+                            width={pozaActiva.width}
+                            height={pozaActiva.height}
                             sizes="(min-width: 1024px) 900px, 92vw"
                             priority
                         />

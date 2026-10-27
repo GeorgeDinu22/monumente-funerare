@@ -49,8 +49,9 @@ async function BodyPage(){
                                     <Image
                                         src={categorie.poster}
                                         alt={categorie.titlu}
-                                        fill
-                                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 92vw"
+                                        width={900}
+                                        height={900}
+                                        sizes="(min-width: 1600px) 475px, (min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw"
                                     />
                                 ) : (
                                     <span className={styles.posterGol} aria-hidden="true">

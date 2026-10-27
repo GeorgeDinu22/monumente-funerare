@@ -91,8 +91,9 @@ export default function AnunturiCarusel({ anunturi }){
                             <Image
                                 src={anunt.url}
                                 alt="Anunț"
-                                fill
-                                sizes="(min-width: 1024px) 900px, 92vw"
+                                width={900}
+                                height={1000}
+                                sizes="(min-width: 1024px) 450px, (min-width: 768px) 81vw, 85vw"
                             />
                         </article>
                     ))}

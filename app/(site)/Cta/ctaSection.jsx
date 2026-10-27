@@ -21,16 +21,16 @@ export default function CtaSection(){
             >
                 <div className={styles.container}>
                     <div className={styles.text}>
-                        <h2>Un singur telefon și <span className={styles.colorText}>ne ocupăm de tot</span></h2>
+                        <h2>Îți stăm alături <span className={styles.colorText}>cu răbdare și grijă</span></h2>
                         <p>
-                            Ne spui de ce ai nevoie și primești pe loc un preț clar
-                            și un termen de execuție. Răspundem non-stop.
+                            Știm că nu e o decizie ușoară. Te ascultăm, îți explicăm opțiunile
+                            și primești un preț clar, fără presiune și fără costuri ascunse.
                         </p>
                     </div>
 
                     <div className={styles.actions}>
                         <Link href={companyInfo.telefon.href} className={styles.primar}>
-                            Solicită ofertă
+                            Discută cu noi
                         </Link>
                     </div>
                 </div>

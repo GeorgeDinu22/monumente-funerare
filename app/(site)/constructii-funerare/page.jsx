@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Check, Hammer, Ruler, Truck, Wrench } from "lucide-react";
-import AccordionGallery from "../AccordionGallery/accordionGallery";
 import { companyInfo } from "../data/companyInfo";
 import { imagineOpenGraph } from "../data/seo";
 import FooterSection from "../Footer/footerSection";
+import GalerieGrid from "../Galerie/galerieGrid";
 import RevealLaScroll from "../RevealLaScroll/revealLaScroll";
 import ScrollExpand from "../ScrollExpand/scrollExpand";
-import ScrollGallery from "../ScrollGallery/scrollGallery";
 import styles from './constructiiFunerarePagina.module.css';
 
 const titlu = "Construcții Funerare: Cavouri și Cripte";
@@ -153,42 +152,50 @@ const etape = [
 
 const galerie = [
     {
-        image: "/servicii-funerare-images/image1.jpeg",
+        type: "image",
+        src: "/servicii-funerare-images/image1.jpeg",
         label: "Monument din granit negru",
         alt: "Monument funerar din granit negru cu cruce dublă și trandafiri gravați",
     },
     {
-        image: "/servicii-funerare-images/image6.jpeg",
+        type: "image",
+        src: "/servicii-funerare-images/image6.jpeg",
         label: "Cavou cu bordură din granit",
         alt: "Cavou finalizat cu bordură din granit gri și pietriș alb montat de echipa noastră",
     },
     {
-        image: "/servicii-funerare-images/image7.jpeg",
+        type: "image",
+        src: "/servicii-funerare-images/image7.jpeg",
         label: "Cavou cu cruce din granit",
         alt: "Cavou cu cruce din granit montat în cimitir, cu pietriș alb decorativ",
     },
     {
-        image: "/servicii-funerare-images/image9.jpeg",
+        type: "image",
+        src: "/servicii-funerare-images/image9.jpeg",
         label: "Cruce din marmură albă",
         alt: "Cruce din marmură albă montată pe soclu, cu bordură și loc pentru flori",
     },
     {
-        image: "/servicii-funerare-images/image10.jpeg",
+        type: "image",
+        src: "/servicii-funerare-images/image10.jpeg",
         label: "Cavou cu sculptură de înger",
         alt: "Cavou dublu din granit cu sculptură de înger și capace lustruite",
     },
     {
-        image: "/servicii-funerare-images/image11.jpeg",
+        type: "image",
+        src: "/servicii-funerare-images/image11.jpeg",
         label: "Monument din marmură cu cruce",
         alt: "Monument din marmură albă cu cruce sculptată și bordură din granit negru",
     },
     {
-        image: "/servicii-funerare-images/image13.jpeg",
+        type: "image",
+        src: "/servicii-funerare-images/image13.jpeg",
         label: "Monument din granit gri",
         alt: "Monument din granit gri cu cruce și pietriș alb decorativ",
     },
     {
-        image: "/servicii-funerare-images/image16.jpeg",
+        type: "image",
+        src: "/servicii-funerare-images/image16.jpeg",
         label: "Bordură din granit montată",
         alt: "Bordură din granit montată în cimitir, lucrare finalizată de echipa noastră",
     },
@@ -202,7 +209,8 @@ export default function ConstructiiFunerarePage(){
                     <Image
                         src="/servicii-funerare-images/hero.jpeg"
                         alt=""
-                        fill
+                        width={1204}
+                        height={1600}
                         priority
                         sizes="(min-width: 1600px) 1472px, 92vw"
                     />
@@ -230,8 +238,9 @@ export default function ConstructiiFunerarePage(){
                                     <Image
                                         src={lucrare.imagine}
                                         alt={lucrare.titlu}
-                                        fill
-                                        sizes="(min-width: 768px) 42vw, 92vw"
+                                        width={800}
+                                        height={1000}
+                                        sizes="(min-width: 1600px) 400px, (min-width: 1024px) 25vw, (min-width: 768px) 41vw, 92vw"
                                     />
                                 </div>
 
@@ -280,27 +289,7 @@ export default function ConstructiiFunerarePage(){
                         <h2 id="titlu-galerie">Lucrări realizate</h2>
                     </div>
 
-                    <ScrollGallery
-                        items={galerie}
-                        height={420}
-                        gap={12}
-                        radius={16}
-                        className={styles.galerieMobila}
-                    />
-
-                    <AccordionGallery
-                        items={galerie}
-                        defaultIndex={1}
-                        expandRatio={0.42}
-                        trigger="hover"
-                        height={600}
-                        mobileHeight={1000}
-                        gap={12}
-                        radius={16}
-                        accentColor="var(--primary)"
-                        overlayColor="#0b0b0c"
-                        className={styles.galerieDesktop}
-                    />
+                    <GalerieGrid items={galerie} />
                 </section>
 
                 <ScrollExpand

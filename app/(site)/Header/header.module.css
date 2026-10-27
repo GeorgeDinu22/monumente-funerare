@@ -1,4 +1,5 @@
 .header{
+    max-width: 1480px;
     position: fixed;
     top: 8px;
     left: 50%;

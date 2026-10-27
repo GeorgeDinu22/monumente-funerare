@@ -21,14 +21,15 @@ export default function HeroSection(){
                         style={{ '--i': index }}
                         src={src}
                         alt=""
-                        fill
-                        sizes="92vw"
+                        width={1600}
+                        height={900}
+                        sizes="(min-width: 1600px) 1472px, 92vw"
                         priority={index === 0}
                     />
                 ))}
             </div>  Funerare de la 0
             <div className={styles.contentHero}>
-                <h1>Construcții <span className={styles.colorText}>Funerare</span> <span className={styles.underlineText}>de la 0</span></h1>
+                <h1>Construcții <span className={styles.colorText}>Funerare</span> <br className={styles.titleBreak}/> <span className={styles.underlineText}>de la 0</span></h1>
                 <p>
                     Servicii  complete și monumente funerare realizate cu grijă, respect și devotament pentru cei dragi.
                 </p>
