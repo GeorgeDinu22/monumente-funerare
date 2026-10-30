@@ -14,11 +14,7 @@
     overflow: hidden;
     border: 1px solid var(--border);
     border-radius: var(--radius-main);
-    background-image: radial-gradient(
-        ellipse at 50% 40%,
-        var(--bg-level-2) 0%,
-        var(--bg-level-1) 70%
-    );
+    background-color: var(--bg-level-1);
 }
 
 .viewer{

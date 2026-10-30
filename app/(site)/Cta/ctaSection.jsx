@@ -19,7 +19,7 @@ export default function CtaSection(){
 
                 <CtaIntersectionObserver className={styles.container}>
                     <div className={styles.text}>
-                        <h2>Îți stăm alături <span className={styles.colorText}>cu răbdare și grijă</span></h2>
+                        <h2>Îți stăm alături cu<span className={styles.colorText}> grijă și răbdare </span></h2>
                         <p>
                             Știm că nu e o decizie ușoară. Te ascultăm, îți explicăm opțiunile
                             și primești un preț clar, fără presiune și fără costuri ascunse.

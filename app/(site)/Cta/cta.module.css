@@ -1,25 +1,28 @@
 .cta{
+    container-type: inline-size;
     max-width: 92%;
     width: 100%;
     margin-top: 80px;
 }
 
 .media{
-    --bar-left: 22%;
-    --bar-right: 78%;
-    --arm-top: 22%;
-    --arm-bottom: 74%;
+    --latime: 100cqw;
+    --step-ratio: 0.4;
+    --step-h: calc(var(--step-ratio) * 0.5 * var(--latime));
+    --corner: calc(0.045 * var(--latime));
     position: relative;
     height: 760px;
     overflow: hidden;
-    clip-path: polygon(
-        var(--bar-left) 0, var(--bar-right) 0,
-        var(--bar-right) var(--arm-top), 100% var(--arm-top),
-        100% var(--arm-bottom), var(--bar-right) var(--arm-bottom),
-        var(--bar-right) 100%, var(--bar-left) 100%,
-        var(--bar-left) var(--arm-bottom), 0 var(--arm-bottom),
-        0 var(--arm-top), var(--bar-left) var(--arm-top)
-    );
+    border-radius: 0 0 var(--corner) var(--corner);
+    isolation: isolate;
+    -webkit-mask-image: url("/shapes/card-monument.svg"), linear-gradient(#000, #000);
+            mask-image: url("/shapes/card-monument.svg"), linear-gradient(#000, #000);
+    -webkit-mask-size: 100% var(--step-h), 100% calc(100% - var(--step-h) + 1px);
+            mask-size: 100% var(--step-h), 100% calc(100% - var(--step-h) + 1px);
+    -webkit-mask-position: top center, bottom center;
+            mask-position: top center, bottom center;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
     transition:
         opacity 0.8s ease-out,
         scale 0.9s cubic-bezier(0.22, 1, 0.36, 1),
@@ -45,7 +48,7 @@
 
 .container{
     position: absolute;
-    inset: var(--arm-top) 0 calc(100% - var(--arm-bottom));
+    inset: var(--step-h) 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -140,10 +143,7 @@
         padding-block: 60px 80px;
     }
     .media{
-        --bar-left: 32%;
-        --bar-right: 68%;
-        --arm-top: 24%;
-        --arm-bottom: 66%;
+        --latime: min(100cqw, 750px);
         max-width: 750px;
         height: 720px;
         margin-inline: auto;
