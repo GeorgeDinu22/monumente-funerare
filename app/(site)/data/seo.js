@@ -1,4 +1,4 @@
-export const siteUrl = "https://monumente-funerare.vercel.app";
+export const siteUrl = "https://filipfunerare.ro";
 
 export const numeSite = "Filip Funerare";
 
