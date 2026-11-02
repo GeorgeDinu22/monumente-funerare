@@ -7,13 +7,12 @@ export default async function sitemap(){
 
     const statice = [
         { url: `${siteUrl}`, lastModified: acum, changeFrequency: "monthly", priority: 1 },
-        { url: `${siteUrl}/servicii-funerare`, lastModified: acum, changeFrequency: "monthly", priority: 0.9 },
         { url: `${siteUrl}/constructii-funerare`, lastModified: acum, changeFrequency: "monthly", priority: 0.9 },
         { url: `${siteUrl}/magazin`, lastModified: acum, changeFrequency: "weekly", priority: 0.8 },
         { url: `${siteUrl}/confidentialitate`, lastModified: acum, changeFrequency: "yearly", priority: 0.2 },
     ];
 
-    const categorii = (await CategoriiCached()) || [];
+    const categorii = (await CategoriiCached().catch(() => [])) || [];
     const produse = (await ToateProduseleCached()) || [];
 
     const caleCategorii = categorii.map((categorie) => ({

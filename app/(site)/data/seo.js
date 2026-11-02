@@ -5,7 +5,7 @@ export const numeSite = "Filip Funerare";
 export const locale = "ro_RO";
 
 export const descriereImplicita =
-    "Servicii funerare complete, disponibile non-stop, și monumente funerare din granit și marmură. Sicrie, transport, acte de deces, cavouri și cruci.";
+    "Construcții funerare în București și Ilfov: cavouri, cripte, monumente și cruci din granit și marmură. Oferim și servicii funerare complete non-stop.";
 
 export const imagineOpenGraph = {
     images: [
@@ -14,7 +14,7 @@ export const imagineOpenGraph = {
             type: "image/jpeg",
             width: 1200,
             height: 630,
-            alt: `${numeSite} — servicii funerare complete non-stop și monumente funerare din granit și marmură`,
+            alt: `${numeSite} — construcții funerare de la 0, monumente, cruci și cavouri din granit și marmură`,
         },
     ],
 };

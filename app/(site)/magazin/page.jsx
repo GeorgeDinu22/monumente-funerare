@@ -10,9 +10,9 @@ import { Suspense } from "react";
 import SkeletonCategorii from "../Skeletons/skeletonCategorii";
 import { imagineOpenGraph } from "../data/seo";
 
-const titlu = "Magazin Monumente și Cruci Funerare";
+const titlu = "Monumente și Cruci Funerare București";
 const descriere =
-    "Monumente funerare, cruci, borduri, placări și accesorii din granit și marmură, grupate pe categorii. Prețuri afișate, livrare și montaj cu echipa noastră.";
+    "Monumente funerare, cruci, borduri și accesorii din granit și marmură, cu prețuri afișate. Livrare și montaj în cimitirele din București și Ilfov.";
 
 export const metadata = {
     title: titlu,

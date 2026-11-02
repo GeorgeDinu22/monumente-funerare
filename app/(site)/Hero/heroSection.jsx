@@ -27,7 +27,7 @@ export default function HeroSection(){
                         priority={index === 0}
                     />
                 ))}
-            </div>  Funerare de la 0
+            </div>
             <div className={styles.contentHero}>
                 <h1>Construcții <span className={styles.colorText}>Funerare</span> <br className={styles.titleBreak}/> <span className={styles.underlineText}>de la 0</span></h1>
                 <p>

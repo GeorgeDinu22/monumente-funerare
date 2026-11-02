@@ -9,9 +9,9 @@ import RevealLaScroll from "../RevealLaScroll/revealLaScroll";
 import ScrollExpand from "../ScrollExpand/scrollExpand";
 import styles from './constructiiFunerarePagina.module.css';
 
-const titlu = "Construcții Funerare: Cavouri și Cripte";
+const titlu = "Cavouri și Cripte din Granit în București";
 const descriere =
-    "Construim cavouri, cripte, borduri și placări din granit și marmură, cu echipă proprie de montaj. Măsurători în cimitir și ofertă fără costuri ascunse.";
+    "Construim cavouri, cripte și borduri din granit și marmură în București și Ilfov, cu echipă proprie de montaj. Măsurători în cimitir, fără costuri ascunse.";
 
 export const metadata = {
     title: titlu,

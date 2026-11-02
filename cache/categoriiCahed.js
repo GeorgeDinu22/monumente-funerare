@@ -13,10 +13,11 @@ export async function CategoriiCached(){
             .select("id,slug,titlu,poster")
             .order("created_at",{ascending:false});
         if(error){
-            throw new Error(error)
+            throw new Error(error.message)
         }
         return data;
     }catch(err){
         console.error("[ERROR] CategoriiCached: ",err);
+        throw err;
     }
 }

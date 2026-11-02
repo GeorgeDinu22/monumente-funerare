@@ -13,7 +13,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `Servicii Funerare Complete Non-stop | ${numeSite}`,
+    default: `Construcții Funerare și Cavouri București | ${numeSite}`,
     template: `%s | ${numeSite}`,
   },
   description: descriereImplicita,
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     locale,
     siteName: numeSite,
     url: "/",
-    title: `Servicii Funerare Complete Non-stop | ${numeSite}`,
+    title: `Construcții Funerare și Cavouri București | ${numeSite}`,
     description: descriereImplicita,
     ...imagineOpenGraph,
   },
   twitter: {
     card: "summary_large_image",
-    title: `Servicii Funerare Complete Non-stop | ${numeSite}`,
+    title: `Construcții Funerare și Cavouri București | ${numeSite}`,
     description: descriereImplicita,
     images: ["/opengraph-image.jpg"],
   },

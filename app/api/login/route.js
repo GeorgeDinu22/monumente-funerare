@@ -1,4 +1,5 @@
 import { createClient } from "../../../lib/supabase/supabaseServer";
+import { VerificaRateLimit } from "../../../lib/upstash/rateLimit";
 
 const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const LUNGIME_MINIMA_PAROLA = 6;
@@ -26,6 +27,21 @@ export async function POST(request){
         );
     }
 
+    const ip =
+        request.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+        request.headers.get("x-real-ip") ||
+        "necunoscut";
+
+    const permis = await VerificaRateLimit(`login:${ip}`);
+
+    if(!permis){
+        console.warn("Prea multe cereri. Incearca din nou peste putin timp!");
+        return Response.json(
+            { ok: false, error: "Prea multe cereri. Incearca din nou peste putin timp!" },
+            { status: 429 }
+        );
+    }
+
     try{
         const supabase = await createClient();
 
@@ -33,6 +49,7 @@ export async function POST(request){
             .signInWithPassword({ email, password: parola });
 
         if(eroareAuth || !dateAuth?.user){
+            console.error("eroareAuth: ",eroareAuth?.message)
             return Response.json(
                 { ok: false, error: EROARE_CREDENTIALE },
                 { status: 401 }
