@@ -143,9 +143,9 @@
         padding-block: 60px 80px;
     }
     .media{
-        --latime: min(100cqw, 750px);
-        max-width: 750px;
-        height: 720px;
+        --latime-max: 1250px;
+        --latime: min(100cqw, var(--latime-max));
+        max-width: var(--latime-max);
         margin-inline: auto;
     }
     .text h2{

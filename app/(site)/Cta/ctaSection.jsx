@@ -4,13 +4,28 @@ import CtaIntersectionObserver from "./ctaIntersectionObserver";
 import { companyInfo } from "../data/companyInfo";
 import styles from './cta.module.css';
 
-export default function CtaSection(){
+const titluImplicit = (
+    <>Îți stăm alături cu<span className={styles.colorText}> grijă și răbdare </span></>
+);
+
+const textImplicit = `Știm că nu e o decizie ușoară. Te ascultăm, îți explicăm opțiunile
+    și primești un preț clar, fără presiune și fără costuri ascunse.`;
+
+export default function CtaSection({
+    id = "contact",
+    className = "",
+    imagine = "/images/candela.jpg",
+    alt = "Monumente Funerare",
+    titlu = titluImplicit,
+    text = textImplicit,
+    buton = "Discută cu noi",
+}){
     return(
-        <section id="contact" className={styles.cta}>
+        <section id={id} className={`${styles.cta} ${className}`}>
             <CtaIntersectionObserver className={styles.media}>
                 <Image
-                    src="/images/candela.jpg"
-                    alt="Monumente Funerare"
+                    src={imagine}
+                    alt={alt}
                     fill
                     sizes="92vw"
                     className={styles.image}
@@ -19,16 +34,13 @@ export default function CtaSection(){
 
                 <CtaIntersectionObserver className={styles.container}>
                     <div className={styles.text}>
-                        <h2>Îți stăm alături cu<span className={styles.colorText}> grijă și răbdare </span></h2>
-                        <p>
-                            Știm că nu e o decizie ușoară. Te ascultăm, îți explicăm opțiunile
-                            și primești un preț clar, fără presiune și fără costuri ascunse.
-                        </p>
+                        <h2>{titlu}</h2>
+                        <p>{text}</p>
                     </div>
 
                     <div className={styles.actions}>
                         <Link href={companyInfo.telefon.href} className={styles.primar}>
-                            Discută cu noi
+                            {buton}
                         </Link>
                     </div>
                 </CtaIntersectionObserver>

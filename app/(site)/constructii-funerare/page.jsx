@@ -1,12 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Check, Hammer, Ruler, Truck, Wrench } from "lucide-react";
-import { companyInfo } from "../data/companyInfo";
 import { imagineOpenGraph } from "../data/seo";
 import FooterSection from "../Footer/footerSection";
 import GalerieGrid from "../Galerie/galerieGrid";
 import RevealLaScroll from "../RevealLaScroll/revealLaScroll";
-import ScrollExpand from "../ScrollExpand/scrollExpand";
+import CtaSection from "../Cta/ctaSection";
 import styles from './constructiiFunerarePagina.module.css';
 
 const titlu = "Cavouri și Cripte din Granit în București";
@@ -292,30 +290,14 @@ export default function ConstructiiFunerarePage(){
                     <GalerieGrid items={galerie} />
                 </section>
 
-                <ScrollExpand
-                    src="/servicii-funerare-images/image23.jpeg"
-                    alt="Monumente Funerare"
-                    title=""
-                    scrollHint=""
-                    height={650}
-                    startRadius={16}
-                    startWidth={0}
-                    endRadius={16}
-                    scrollDistance={1}
-                    holdDistance={0.25}
-                    useWindowScroll
-                >
-                    <div className={styles.ctaExpand}>
-                        <h2>Vreți o estimare pentru locul de veci?</h2>
-                        <p>
-                            Sunați-ne și stabilim o vizită în cimitir pentru măsurători.
-                            Oferta o primiți fără nicio obligație.
-                        </p>
-                        <Link href={companyInfo.telefon.href} className={styles.primar}>
-                            Sună acum
-                        </Link>
-                    </div>
-                </ScrollExpand>
+                <CtaSection
+                    id="estimare"
+                    className={styles.cta}
+                    imagine="/servicii-funerare-images/image23.jpeg"
+                    titlu="Vreți o estimare pentru locul de veci?"
+                    text="Sunați-ne și stabilim o vizită în cimitir pentru măsurători. Oferta o primiți fără nicio obligație."
+                    buton="Sună acum"
+                />
 
                 <RevealLaScroll
                     selector={`.${styles.card}, .${styles.etapa}`}
