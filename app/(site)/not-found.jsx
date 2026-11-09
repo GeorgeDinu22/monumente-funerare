@@ -13,11 +13,11 @@ export default function NotFound(){
                 <p className={styles.cod}>404</p>
 
                 <h1 className={styles.titlu}>
-                    Ai accesat o pagină care nu există
+                    Pagina nu a fost găsită
                 </h1>
 
                 <p className={styles.text}>
-                    Este ok, cu toții ne rătăcim. Te ducem înapoi de unde ai pornit.
+                    Pagina pe care o căutați nu există sau a fost mutată.
                 </p>
 
                 <Link href="/" className={styles.buton}>

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { ArrowLeft, PackageOpen, Phone } from "lucide-react";
-import { companyInfo } from "../../data/companyInfo";
-import { imagineOpenGraph } from "../../data/seo";
+import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
+import { imagineOpenGraph, openGraphBaza } from "../../data/seo";
 import CardProdus from "../../CardProdus/cardProdus";
 import FooterSection from "../../Footer/footerSection";
 import RevealLaScroll from "../../RevealLaScroll/revealLaScroll";
@@ -17,13 +17,7 @@ export async function generateMetadata({ params }){
     const categorii = await CategoriiCached();
     const categorie = categorii?.find((element) => element.slug === slug);
 
-    if (!categorie) {
-        return {
-            title: "Categorie negăsită",
-            alternates: { canonical: `/magazin/${slug}` },
-            robots: { index: false, follow: true },
-        };
-    }
+    if (!categorie) return {};
 
     const titlu = `${categorie.titlu} – Modele și Prețuri`;
     const descriere = `${categorie.titlu} din granit și marmură, cu prețuri afișate. Vedeți toate modelele disponibile și sunați pentru ofertă și montaj.`;
@@ -34,6 +28,7 @@ export async function generateMetadata({ params }){
         description: descriere,
         alternates: { canonical: cale },
         openGraph: {
+            ...openGraphBaza,
             title: titlu,
             description: descriere,
             url: cale,
@@ -42,58 +37,11 @@ export async function generateMetadata({ params }){
     };
 }
 
-function titluDinSlug(slug){
-    const text = slug.replace(/-/g, " ");
-    return text.charAt(0).toUpperCase() + text.slice(1);
-}
-
 export async function BodyPage({params}) {
     const { categorie: slug } = await params;
     const produse = await ProduseCached(slug);
-    if(produse.length < 1){
-        return(
-            <>
-                <main className={styles.pagina}>
-                    <div className={styles.head}>
-                        <Link href="/magazin" className={styles.inapoi}>
-                            <ArrowLeft size={18} strokeWidth={2.2} />
-                            Toate categoriile
-                        </Link>
+    if(produse.length < 1) notFound();
 
-                        <h1>{titluDinSlug(slug)}</h1>
-                    </div>
-
-                    <div className={styles.gol}>
-                        <span className={styles.golIcon} aria-hidden="true">
-                            <PackageOpen size={32} strokeWidth={1.8} />
-                        </span>
-
-                        <h2 className={styles.golTitlu}>
-                            Nu există produse în această categorie
-                        </h2>
-
-                        <p className={styles.golText}>
-                            Momentan nu avem produse listate aici. Sunați-ne și vă
-                            pregătim o ofertă pentru ce aveți nevoie.
-                        </p>
-
-                        <div className={styles.golActiuni}>
-                            <Link href={companyInfo.telefon.href} className={styles.golPrimar}>
-                                <Phone size={18} strokeWidth={2.2} />
-                                Sună acum
-                            </Link>
-
-                            <Link href="/magazin" className={styles.golSecundar}>
-                                Vezi toate categoriile
-                            </Link>
-                        </div>
-                    </div>
-                </main>
-
-                <FooterSection />
-            </>
-        )
-    }
     const numeCategorie = produse[0].categorii.titlu;
 
     return(

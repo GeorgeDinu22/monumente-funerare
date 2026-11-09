@@ -8,7 +8,8 @@ import { CategoriiCached } from "../../../cache/categoriiCahed";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import SkeletonCategorii from "../Skeletons/skeletonCategorii";
-import { imagineOpenGraph } from "../data/seo";
+import { imagineOpenGraph, openGraphBaza } from "../data/seo";
+import Eroare from "../error";
 
 const titlu = "Monumente și Cruci Funerare București";
 const descriere =
@@ -19,6 +20,7 @@ export const metadata = {
     description: descriere,
     alternates: { canonical: "/magazin" },
     openGraph: {
+        ...openGraphBaza,
         title: titlu,
         description: descriere,
         url: "/magazin",
@@ -29,7 +31,11 @@ export const metadata = {
 async function BodyPage(){
 
     const categorii = await CategoriiCached();
-    if(!categorii) notFound();
+    if(!categorii){
+        return(
+            <Eroare/>
+        )
+    }
 
     return(
         <>

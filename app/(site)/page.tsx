@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
-import { numeSite, descriereImplicita, imagineOpenGraph } from './data/seo';
+import { titluImplicit, descriereImplicita, imagineOpenGraph, openGraphBaza } from './data/seo';
 import HeroSection from './Hero/heroSection';
 import AnunturiSection from './Anunturi/anunturiSection';
 import BodyServiciiSection from './BodyServicii/bodyServiciiSection';
@@ -11,7 +11,7 @@ import GalerieSection from './Galerie/galerieSection';
 import CtaSection from './Cta/ctaSection';
 import FooterSection from './Footer/footerSection';
 
-const titlu = `Construcții Funerare și Cavouri București | ${numeSite}`;
+const titlu = titluImplicit;
 const descriere = descriereImplicita;
 
 export const metadata: Metadata = {
@@ -19,10 +19,17 @@ export const metadata: Metadata = {
   description: descriere,
   alternates: { canonical: '/' },
   openGraph: {
+    ...openGraphBaza,
     title: titlu,
     description: descriere,
     url: '/',
     ...imagineOpenGraph,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: titlu,
+    description: descriere,
+    images: ['/opengraph-image.jpg'],
   },
 };
 

@@ -3,7 +3,7 @@ import { Manrope } from "next/font/google";
 import "../globals.css";
 import Header from "./Header/header";
 import LoadingScreen from "./LoadingScreen/loadingScreen";
-import { siteUrl, numeSite, locale, descriereImplicita, imagineOpenGraph } from "./data/seo";
+import { siteUrl, numeSite, titluImplicit, descriereImplicita, imagineOpenGraph, openGraphBaza } from "./data/seo";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -13,7 +13,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `Construcții Funerare și Cavouri București | ${numeSite}`,
+    default: titluImplicit,
     template: `%s | ${numeSite}`,
   },
   description: descriereImplicita,
@@ -21,18 +21,14 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    type: "website",
-    locale,
-    siteName: numeSite,
+    ...openGraphBaza,
     url: "/",
-    title: `Construcții Funerare și Cavouri București | ${numeSite}`,
+    title: titluImplicit,
     description: descriereImplicita,
     ...imagineOpenGraph,
   },
   twitter: {
     card: "summary_large_image",
-    title: `Construcții Funerare și Cavouri București | ${numeSite}`,
-    description: descriereImplicita,
     images: ["/opengraph-image.jpg"],
   },
   robots: {

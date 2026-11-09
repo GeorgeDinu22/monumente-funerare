@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { linkWhatsAppCuMesaj } from "../../../data/companyInfo";
-import { truncheazaDescriere, imagineOpenGraph } from "../../../data/seo";
+import { truncheazaDescriere, imagineOpenGraph, openGraphBaza } from "../../../data/seo";
 import FooterSection from "../../../Footer/footerSection";
 import GalerieProdus from "./galerieProdus";
 import ActiuniProdus from "./actiuniProdus";
@@ -44,6 +44,7 @@ export async function generateMetadata({ params }){
         description: descriere,
         alternates: { canonical: cale },
         openGraph: {
+            ...openGraphBaza,
             title: produs.titlu,
             description: descriere,
             url: cale,

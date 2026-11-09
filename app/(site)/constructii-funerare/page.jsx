@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Check, Hammer, Ruler, Truck, Wrench } from "lucide-react";
-import { imagineOpenGraph } from "../data/seo";
+import { imagineOpenGraph, openGraphBaza } from "../data/seo";
 import FooterSection from "../Footer/footerSection";
 import GalerieGrid from "../Galerie/galerieGrid";
 import RevealLaScroll from "../RevealLaScroll/revealLaScroll";
@@ -16,6 +16,7 @@ export const metadata = {
     description: descriere,
     alternates: { canonical: "/constructii-funerare" },
     openGraph: {
+        ...openGraphBaza,
         title: titlu,
         description: descriere,
         url: "/constructii-funerare",
@@ -44,17 +45,6 @@ const lucrari = [
         ],
     },
     {
-        id: "2",
-        titlu: "Cavou",
-        imagine: "/constrcutii-funerare/proiect2.jpeg",
-        detalii: [
-            "Îmbrăcat intr un granit SILVER",
-            "Monument stil aripi ",
-            "Felinar și vază",
-            "Jardiniere executate manual"
-        ],
-    },
-        {
         id: "2",
         titlu: "Cavou",
         imagine: "/constrcutii-funerare/proiect2.jpeg",
@@ -113,10 +103,10 @@ const lucrari = [
         imagine: "/constrcutii-funerare/proiect7.jpeg",
         detalii: [
             "Îmbrăcat intr un granit Silver",
-"            Monument cu Îngeraș ",
+            "Monument cu Îngeraș",
             "Capace masive ",
             "Felinar și vază",
-"            Jardiniere lucrate manual"
+            "Jardiniere lucrate manual"
         ],
     },
 ];
