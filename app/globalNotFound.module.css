@@ -1,0 +1,31 @@
+.pagina{
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px 16px;
+    text-align: center;
+}
+
+.titlu{
+    font-size: clamp(28px, 4vw, 40px);
+}
+
+.buton{
+    padding: 8px 20px;
+    border-radius: var(--radius-button);
+    background-color: var(--primary);
+    color: var(--on-primary);
+    font-size: 16px;
+    font-weight: var(--font-weight-2);
+    transition: background-color 200ms ease;
+}
+.buton:hover{
+    background-color: var(--secondary);
+}
+.buton:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}

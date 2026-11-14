@@ -27,6 +27,12 @@ const proiecte = [
         alt: "Cavou placat cu marmură albă, cu cruce și două plăci gravate",
     },
     {
+        type: "video",
+        src: "https://monumente-funerare.b-cdn.net/static/IMG_5336.mp4",
+        label: "Cruci din marmură",
+        alt: "Cruci din marmură",
+    },
+    {
         type: "image",
         src: "/constrcutii-funerare/proiect5.jpeg",
         label: "Monument din marmură cu aripi",

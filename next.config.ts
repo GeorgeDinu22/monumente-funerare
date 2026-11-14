@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
   },
 
   experimental: {
+    globalNotFound: true,
     serverActions: {
       bodySizeLimit: '20mb',
     },

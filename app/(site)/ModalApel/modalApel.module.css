@@ -1,0 +1,156 @@
+.butonApel{
+    border: none;
+    font-family: inherit;
+    line-height: inherit;
+    cursor: pointer;
+}
+
+:global(html):has(.modal[open]){
+    overflow: hidden;
+}
+
+.modal{
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(420px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px);
+    padding: 0;
+    border: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);
+    border-radius: var(--radius-main);
+    background-color: color-mix(in srgb, var(--bg-level-1) 55%, transparent);
+    backdrop-filter: blur(16px) saturate(180%);
+    color: var(--foreground);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 color-mix(in srgb, var(--foreground) 12%, transparent);
+    overflow: auto;
+}
+
+@supports not (backdrop-filter: blur(16px)){
+    .modal{
+        background-color: color-mix(in srgb, var(--bg-level-1) 92%, transparent);
+    }
+}
+.modal::backdrop{
+    background-color: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+}
+
+.modal[open]{
+    animation: intrare 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.modal[open]::backdrop{
+    animation: fundalIntrare 320ms ease;
+}
+.modal[data-inchidere]{
+    animation: iesire 200ms ease-in forwards;
+}
+.modal[data-inchidere]::backdrop{
+    animation: fundalIesire 200ms ease-in forwards;
+}
+
+@keyframes intrare{
+    from{
+        opacity: 0;
+        translate: 0 12px;
+        scale: 0.96;
+    }
+}
+@keyframes iesire{
+    to{
+        opacity: 0;
+        translate: 0 8px;
+        scale: 0.98;
+    }
+}
+@keyframes fundalIntrare{
+    from{
+        opacity: 0;
+    }
+}
+@keyframes fundalIesire{
+    to{
+        opacity: 0;
+    }
+}
+
+.continut{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 24px 16px;
+    text-align: center;
+}
+
+.inchide{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-interior);
+    background-color: transparent;
+    color: var(--foreground);
+    cursor: pointer;
+    transition: background-color 200ms ease, color 200ms ease;
+}
+.inchide:hover{
+    background-color: color-mix(in srgb, var(--foreground) 8%, transparent);
+    color: var(--primary);
+}
+
+.continut h2{
+    color: #fff;
+    font-size: clamp(24px, 4vw, 28px);
+    line-height: var(--leading-heading-loose);
+}
+
+.telefoane{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.telefon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 24px;
+    border: 1px solid color-mix(in srgb, var(--foreground) 14%, transparent);
+    border-radius: 16px;
+    background-color: color-mix(in srgb, var(--foreground) 8%, transparent);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--foreground) 16%, transparent);
+    color: var(--foreground);
+    font-weight: var(--font-weight-2);
+    font-size: clamp(18px, 2vw, 20px);
+    font-variant-numeric: tabular-nums;
+    transition: background-color 200ms ease, border-color 200ms ease;
+}
+.telefon:hover{
+    background-color: color-mix(in srgb, var(--foreground) 12%, transparent);
+    border-color: color-mix(in srgb, var(--foreground) 22%, transparent);
+}
+
+.telefon:focus-visible,
+.inchide:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce){
+    .modal[open]{
+        animation-name: fundalIntrare;
+    }
+    .modal[data-inchidere]{
+        animation-name: fundalIesire;
+    }
+}

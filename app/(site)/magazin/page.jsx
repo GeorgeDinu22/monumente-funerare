@@ -37,10 +37,19 @@ async function BodyPage(){
         )
     }
 
+    if(categorii.length < 1){
+        return(
+            <main className={styles.pagina}>
+                <h1>Magazin</h1>
+                <p className={styles.gol}>Nu există produse momentan.</p>
+            </main>
+        )
+    }
+
     return(
         <>
             <main className={styles.pagina}>
-                <h1>Magazin Online</h1>
+                <h1>Magazin</h1>
 
                 <section className={styles.sectiune} aria-labelledby="titlu-categorii">
 

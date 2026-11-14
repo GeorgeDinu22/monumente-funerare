@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "../globals.css";
 import Header from "./Header/header";
 import LoadingScreen from "./LoadingScreen/loadingScreen";
+import ModalApelProvider from "./ModalApel/modalApel";
 import { siteUrl, numeSite, titluImplicit, descriereImplicita, imagineOpenGraph, openGraphBaza } from "./data/seo";
 
 const manrope = Manrope({
@@ -45,10 +46,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         <LoadingScreen />
-        <div className="bodyWrapper">
-          <Header />
-          {children}
-        </div>
+        <ModalApelProvider>
+          <div className="bodyWrapper">
+            <Header />
+            {children}
+          </div>
+        </ModalApelProvider>
       </body>
     </html>
   );

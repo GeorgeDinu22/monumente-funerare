@@ -46,6 +46,7 @@ export default async function FooterSection(){
                 <div className={styles.coloana}>
                     <h3>Contact</h3>
                     <Link href={companyInfo.telefon.href}>{companyInfo.telefon.afisat}</Link>
+                    <Link href="tel:+40766360649">0766 360 649</Link>
                     <span>{companyInfo.adresa}</span>
                     <span>CUI: {companyInfo.CUI}</span>
                 </div>

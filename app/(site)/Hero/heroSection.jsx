@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import { companyInfo } from "../data/companyInfo";
+import { ButonApel } from "../ModalApel/modalApel";
 import styles from './hero.module.css';
 
 const imaginiFundal = [
@@ -33,9 +32,9 @@ export default function HeroSection(){
                 <p>
                     Servicii  complete și monumente funerare realizate cu grijă, respect și devotament pentru cei dragi.
                 </p>
-                <Link href={companyInfo.telefon.href}>
+                <ButonApel>
                     Sună acum
-                </Link>
+                </ButonApel>
             </div>
         </div>
     )

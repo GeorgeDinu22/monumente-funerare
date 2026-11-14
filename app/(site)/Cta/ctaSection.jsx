@@ -1,7 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import CtaIntersectionObserver from "./ctaIntersectionObserver";
-import { companyInfo } from "../data/companyInfo";
+import { ButonApel } from "../ModalApel/modalApel";
 import styles from './cta.module.css';
 
 const titluImplicit = (
@@ -39,9 +38,9 @@ export default function CtaSection({
                     </div>
 
                     <div className={styles.actions}>
-                        <Link href={companyInfo.telefon.href} className={styles.primar}>
+                        <ButonApel className={styles.primar}>
                             {buton}
-                        </Link>
+                        </ButonApel>
                     </div>
                 </CtaIntersectionObserver>
             </CtaIntersectionObserver>

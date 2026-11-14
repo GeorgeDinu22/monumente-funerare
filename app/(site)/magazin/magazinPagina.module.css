@@ -217,3 +217,13 @@
         height: 44px;
     }
 }
+
+.gol{
+    min-height: 30dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: clamp(16px, 1.5vw, 20px);
+    text-align: center;
+}

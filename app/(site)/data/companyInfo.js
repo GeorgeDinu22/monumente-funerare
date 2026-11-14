@@ -1,4 +1,5 @@
-const TELEFON_INTERNATIONAL = "++40761841576";
+const TELEFON_INTERNATIONAL = "+40761841576";
+const TELEFON_SECUNDAR = "+40766360649";
 const TELEFON_CIFRE = TELEFON_INTERNATIONAL.replace(/\D/g, "");
 
 export const companyInfo = {
@@ -8,6 +9,10 @@ export const companyInfo = {
         afisat: "0761 841 576",
         href: `tel:${TELEFON_INTERNATIONAL}`,
     },
+    telefoane: [
+        { afisat: "0761 841 576", href: `tel:${TELEFON_INTERNATIONAL}` },
+        { afisat: "0766 360 649", href: `tel:${TELEFON_SECUNDAR}` },
+    ],
     whatsapp: {
         numar: TELEFON_CIFRE,
         href: `https://wa.me/${TELEFON_CIFRE}`,

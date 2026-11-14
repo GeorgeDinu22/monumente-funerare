@@ -97,7 +97,7 @@
     width: 85%;
     font-size: clamp(16px,1.75vw,24px);
 }
-.contentHero a{
+.contentHero button{
     background-color: var(--primary);
     padding: 8px 20px;
     color: black;

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { PhoneCall } from "lucide-react";
 import { companyInfo } from "../data/companyInfo";
+import { ButonApel } from "../ModalApel/modalApel";
 import styles from './header.module.css';
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -92,22 +93,17 @@ export default function Header(){
                 </nav>
 
                 <div className={styles.actiuni}>
-                    <Link
-                        href={companyInfo.telefon.href}
+                    <ButonApel
                         className={styles.call}
                         aria-label="Sună acum"
                     >
                         <PhoneCall size={18} strokeWidth={2.2} aria-hidden="true" />
-                    </Link>
+                    </ButonApel>
 
-                    <Link
-                        href={companyInfo.telefon.href}
-                        className={styles.callDesktop}
-                        aria-label="Sună acum"
-                    >
+                    <ButonApel className={styles.callDesktop}>
                         <PhoneCall size={18} strokeWidth={2.2} aria-hidden="true" />
                         Cere Oferta
-                    </Link>
+                    </ButonApel>
 
                     <button
                         type="button"
@@ -158,14 +154,13 @@ export default function Header(){
                 </nav>
 
                 <div className={styles.sidebarFooter}>
-                    <Link
-                        href={companyInfo.telefon.href}
+                    <ButonApel
                         className={styles.footerCall}
                         onClick={() => setOpen(false)}
                         aria-label="Sună acum"
                     >
                         <PhoneCall size={22} strokeWidth={2.2} aria-hidden="true" />
-                    </Link>
+                    </ButonApel>
 
                     <Link
                         href={companyInfo.whatsapp.href}

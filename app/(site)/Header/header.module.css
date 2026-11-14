@@ -232,7 +232,8 @@
     padding-top: 16px;
     border-top: 1px solid var(--border);
 }
-.sidebarFooter a{
+.sidebarFooter a,
+.sidebarFooter button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -267,6 +268,7 @@
 .close:focus-visible,
 .nav a:focus-visible,
 .sidebarFooter a:focus-visible,
+.sidebarFooter button:focus-visible,
 .logo:focus-visible{
     outline: 2px solid var(--primary);
     outline-offset: 2px;
