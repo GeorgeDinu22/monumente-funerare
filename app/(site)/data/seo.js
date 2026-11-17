@@ -4,7 +4,7 @@ export const numeSite = "Filip Funerare";
 
 export const locale = "ro_RO";
 
-export const titluImplicit = `Construcții funerare și cruci de marmură | ${numeSite}`;
+export const titluImplicit = `Construcții funerare, cruci de marmură și granit | ${numeSite}`;
 
 export const descriereImplicita =
     "Construcții funerare și cruci de marmură și granit în București și Ilfov: monumente, cavouri și cripte de la 0. Servicii funerare complete non-stop.";

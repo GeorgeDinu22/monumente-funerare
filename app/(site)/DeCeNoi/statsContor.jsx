@@ -7,6 +7,13 @@ const statistici = [
     { id: "experienta", tinta: 20, sufix: "+", eticheta: "ani de experiență" },
     { id: "proiecte", tinta: 1067, sufix: "+", eticheta: "proiecte finalizate" },
     { id: "recenzii", tinta: 876, sufix: "+", eticheta: "recenzii de 5 stele" },
+    {
+        id: "garantie",
+        tinta: 10,
+        sufix: "",
+        eticheta: <>ani garanție la <br className={styles.rupereMobil} />orice lucrare</>,
+        special: true,
+    },
 ];
 
 const DURATA = 1800;
@@ -40,10 +47,13 @@ export default function StatsContor(){
     return(
         <div className={styles.stats} ref={zona}>
             {statistici.map((stat) => (
-                <article key={stat.id} className={styles.stat}>
+                <article
+                    key={stat.id}
+                    className={`${styles.stat} ${stat.special ? styles.special : ""}`}
+                >
                     <Numar tinta={stat.tinta} pornit={pornit} />
                     <span className={styles.valoare}>
-                        <span className={styles.sufix}>{stat.sufix}</span>
+                        {stat.sufix && <span className={styles.sufix}>{stat.sufix}</span>}
                         <span className={styles.eticheta}>{stat.eticheta}</span>
                     </span>
                 </article>

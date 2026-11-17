@@ -36,27 +36,14 @@
 }
 
 .card{
-    --step-ratio: 0.4;
-    --step-h: calc(var(--step-ratio) * 50cqw);
-    --corner: calc(0.045 * 100cqw);
-
     position: relative;
     flex: 1;
     display: flex;
     align-items: flex-end;
     overflow: hidden;
-    border-radius: 0 0 var(--corner) var(--corner);
+    border-radius: var(--radius-main);
     background-color: var(--bg-level-1);
     isolation: isolate;
-
-    -webkit-mask-image: url("/shapes/card-monument.svg"), linear-gradient(#000, #000);
-            mask-image: url("/shapes/card-monument.svg"), linear-gradient(#000, #000);
-    -webkit-mask-size: 100% var(--step-h), 100% calc(100% - var(--step-h) + 1px);
-            mask-size: 100% var(--step-h), 100% calc(100% - var(--step-h) + 1px);
-    -webkit-mask-position: top center, bottom center;
-            mask-position: top center, bottom center;
-    -webkit-mask-repeat: no-repeat;
-            mask-repeat: no-repeat;
     transition: all 350ms ease;
 }
 .card:hover{
@@ -66,7 +53,7 @@
 
 .badge{
     position: absolute;
-    top: calc(var(--step-h) + 14px);
+    top: 16px;
     left: 50%;
     max-width: 84cqw;
     text-align: center;
@@ -159,13 +146,6 @@
 .buton:focus-visible{
     outline: 2px solid var(--primary);
     outline-offset: 3px;
-}
-
-.defs{
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
 }
 
 @media (min-width: 1024px){

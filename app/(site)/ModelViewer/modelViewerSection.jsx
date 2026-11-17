@@ -46,6 +46,11 @@ export default function ModelViewerSection(){
                     exposure="1"
                 />
 
+                <span className={styles.eticheta}>
+                    <Rotate3d size={16} strokeWidth={2.2} aria-hidden="true" />
+                    Model 3D
+                </span>
+
                 {!incarcat && (
                     <div className={styles.incarcare} aria-live="polite">
                         <div className={styles.bara}>

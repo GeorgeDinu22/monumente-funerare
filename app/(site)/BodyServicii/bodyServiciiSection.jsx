@@ -14,6 +14,7 @@ const servicii = [
             "Materiale rezistente",
             "Echipă proprie de montaj",
         ],
+        cta:"Vezi mai multe proiecte"
     },
     {
         id: "magazin",
@@ -25,6 +26,7 @@ const servicii = [
             "Gravură personalizată inclusă",
             "Montaj la cimitir la cerere",
         ],
+        cta:"Vezi mai multe produse"
     },
 ];
 
@@ -66,7 +68,7 @@ export default function BodyServiciiSection(){
                             </ul>
 
                             <Link href={serviciu.href} className={styles.buton}>
-                                Vezi mai multe
+                                {serviciu.cta}
                                 <ArrowUpRight size={18} strokeWidth={2.5} aria-hidden="true" />
                             </Link>
                         </div>
@@ -74,14 +76,6 @@ export default function BodyServiciiSection(){
                     </div>
                 ))}
             </div>
-
-            <svg className={styles.defs} aria-hidden="true" focusable="false">
-                <defs>
-                    <clipPath id="formaCard" clipPathUnits="objectBoundingBox">
-                        <path d="M0 1V0.1958A0.045 0.0263 0 0 1 0.045 0.1695H0.225A0.045 0.0263 0 0 0 0.27 0.1432V0.0263A0.045 0.0263 0 0 1 0.315 0H0.685A0.045 0.0263 0 0 1 0.73 0.0263V0.1432A0.045 0.0263 0 0 0 0.775 0.1695H0.955A0.045 0.0263 0 0 1 1 0.1958V1Z" />
-                    </clipPath>
-                </defs>
-            </svg>
         </section>
     )
 }

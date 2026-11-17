@@ -1,3 +1,7 @@
+:global(html):has(.overlay){
+    animation: blocareScroll 2.45s;
+}
+
 .overlay{
     position: fixed;
     inset: 0;
@@ -85,6 +89,14 @@
     }
 }
 
+@keyframes blocareScroll{
+    from,
+    to{
+        overflow: hidden;
+        scrollbar-gutter: stable;
+    }
+}
+
 @keyframes iesire{
     to{
         transform: translateY(-100%);
@@ -92,6 +104,9 @@
 }
 
 @media (prefers-reduced-motion: reduce){
+    :global(html):has(.overlay){
+        animation-duration: 500ms;
+    }
     .overlay{
         animation-duration: 200ms;
         animation-delay: 300ms;

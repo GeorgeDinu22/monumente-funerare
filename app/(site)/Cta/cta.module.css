@@ -6,23 +6,11 @@
 }
 
 .media{
-    --latime: 100cqw;
-    --step-ratio: 0.4;
-    --step-h: calc(var(--step-ratio) * 0.5 * var(--latime));
-    --corner: calc(0.045 * var(--latime));
     position: relative;
-    height: 760px;
+    height: 600px;
     overflow: hidden;
-    border-radius: 0 0 var(--corner) var(--corner);
+    border-radius: var(--radius-main);
     isolation: isolate;
-    -webkit-mask-image: url("/shapes/card-monument.svg"), linear-gradient(#000, #000);
-            mask-image: url("/shapes/card-monument.svg"), linear-gradient(#000, #000);
-    -webkit-mask-size: 100% var(--step-h), 100% calc(100% - var(--step-h) + 1px);
-            mask-size: 100% var(--step-h), 100% calc(100% - var(--step-h) + 1px);
-    -webkit-mask-position: top center, bottom center;
-            mask-position: top center, bottom center;
-    -webkit-mask-repeat: no-repeat;
-            mask-repeat: no-repeat;
     transition:
         opacity 0.8s ease-out,
         scale 0.9s cubic-bezier(0.22, 1, 0.36, 1),
@@ -48,7 +36,7 @@
 
 .container{
     position: absolute;
-    inset: var(--step-h) 0 0;
+    inset: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -143,9 +131,7 @@
         padding-block: 60px 80px;
     }
     .media{
-        --latime-max: 1250px;
-        --latime: min(100cqw, var(--latime-max));
-        max-width: var(--latime-max);
+        max-width: 1250px;
         margin-inline: auto;
     }
     .text h2{
